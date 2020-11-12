@@ -1,1 +1,1 @@
-mongoimport --db skotels -c hotels --file "HOTEL.geojson" --jsonArray
+mongoimport --db skotels -c hotels --file "Hotel.geojson" --jsonArray
