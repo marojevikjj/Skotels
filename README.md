@@ -22,16 +22,22 @@
   <li>The system shall enable customers to review all details of the selected hotel.</li>
   <li>The system shall enable customers to check the availability of rooms.</li>
   <li>The system shall provide an option for booking a room in the selected hotel.</li>
-  <li>The system shall redirect customers to the payment page after confirming the reservation.</li>
-  <li>The system shall accept paying with credit and debit card.</li>
-  <li>The system shall send an email notification of booking confirmation to the customer.</li>
+  <li>The system shall provide a navigation tool for routing</li>
+  <li>The system shall store the routes in the database</li>
+  <li>The system shall support two types of users: administrator and user.</li>
+  <li>The system shall enable the administrator to add/remove hotels.</li>
+  <li>The system shall enable searching of hotels.</li>
   <li>The system shall allow customers to rate/write reviews about visited hotels.</li>
   <li>The system shall be available in English and Macedonian language.</li>
+  <li>The system shall provide user management.</li>
+  <li>The system shall provide logging in/logging out.</li>
+  <li>The system shall provide registering of a new user</li>
   </ol>
 
   ### 2.2 Non-functional Requirements
   <ol>
   <li>The system shall permit access to all users using a web browser that is version 4.0 or higher.</li>
+  <li>The system shall interact with external services (booking.com).</li>
   <li>The system shall be secured from the outside attacks and unauthorized access.</li>
   <li>The system shall be available 24 hours a day to enable user interactions.</li>
   <li>The system shall identify users before redirecting them to the payment method. </li>
