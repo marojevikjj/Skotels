@@ -1,0 +1,21 @@
+
+<div class="hotels-container">
+  <div class="title-container"> <div class="title">Hotels</div> </div>
+
+  <div class="hotel-list">
+    <div class="hotel-card" *ngFor="let h of hotels">
+      <div class="hotel-name">{{h.name}}</div>
+        <div class="map">
+          <div class="map-image">
+            <div class="darken-image"></div>
+          <div class="map-image-text">Show on map</div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button><a href="https://www.booking.com/">Book now</a></button>
+          <button>Show more info</button>
+      </div>
+    </div>
+  </div>
+</div>
+

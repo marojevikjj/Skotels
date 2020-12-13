@@ -1,0 +1,30 @@
+<div class="login-container">
+  <div class="wrapper">
+    <div class="header">
+      <div>SIGN UP</div>
+    </div>
+    <div class="login">
+      <form [formGroup]="signUpFG">
+        <div class="field">
+          <input type="text" placeholder="Enter your email" formControlName="email" required class="username-input">
+        </div>
+        <div class="field">
+          <input type="text" placeholder="Enter username" formControlName="username" required class="username-input">
+        </div>
+        <div class="field">
+          <input type="password" placeholder="Enter password" formControlName="password" required class="password-input">
+        </div>
+        <div class="field">
+          <input type="text" placeholder="Confirm password" formControlName="repeatPassword" required class="username-input">
+        </div>
+<!--        <div class="message-alert" *ngIf="error">-->
+<!--          {{error}}-->
+<!--        </div>-->
+      </form>
+      <div class="buttonDiv">
+        <button type="button" class="log-in-button" (click)="goToLogin()">SIGN UP</button>
+      </div>
+    </div>
+  </div>
+</div>
+
