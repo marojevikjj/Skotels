@@ -17,7 +17,7 @@ public class LoginController {
 
     @PostMapping
     public ResponseEntity<Users> login(@RequestBody Users loginUser){
-        return userService.findByUsername(loginUser.getUsername())
+        return userService.findByUsernameAndPassword(loginUser.getUsername(), loginUser.getPassword())
                 .map(user -> ResponseEntity.ok().body(loginUser))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
