@@ -5,9 +5,9 @@
     </div>
     <div class="login">
       <form [formGroup]="signUpFG">
-        <div class="field">
-          <input type="text" placeholder="Enter your email" formControlName="email" required class="username-input">
-        </div>
+<!--        <div class="field">-->
+<!--          <input type="text" placeholder="Enter your email" formControlName="email" required class="username-input">-->
+<!--        </div>-->
         <div class="field">
           <input type="text" placeholder="Enter username" formControlName="username" required class="username-input">
         </div>
@@ -22,7 +22,7 @@
 <!--        </div>-->
       </form>
       <div class="buttonDiv">
-        <button type="button" class="log-in-button" (click)="goToLogin()">SIGN UP</button>
+        <button type="button" class="log-in-button" (click)="onSubmit()">SIGN UP</button>
       </div>
     </div>
   </div>

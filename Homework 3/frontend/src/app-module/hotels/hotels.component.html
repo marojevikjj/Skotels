@@ -1,6 +1,8 @@
 
 <div class="hotels-container">
-  <div class="title-container"> <div class="title">Hotels</div> </div>
+  <div class="title-container"> <div class="title">Hotels</div></div>
+  <div class="search"><input type="text" placeholder="Find a hotel"></div>
+  <div class="sort"><button>Sort by stars</button></div>
 
   <div class="hotel-list">
     <div class="hotel-card" *ngFor="let h of hotels">
@@ -13,9 +15,28 @@
       </div>
       <div class="buttons">
         <button><a href="https://www.booking.com/">Book now</a></button>
-          <button>Show more info</button>
+          <button (click)="show_info(h)">Show more info</button>
       </div>
     </div>
   </div>
 </div>
 
+<app-modal #hotelInfo [modalTitle]="'Hotel information'" [height]="500" [width]="900">
+  <app-hotel-info [hotel]="currentHotel"  (hideModal)="close_modal()"></app-hotel-info>
+</app-modal>
+
+<!--<app-modal #confirmationModal [modalTitle]="'Бришење на здруженија'" [height]="170">-->
+<!--  <div class="modal-container">-->
+<!--    <div class="modal-title">-->
+<!--      Дали сте сигурни дека сакате да го избришете здружението ?-->
+<!--    </div>-->
+<!--    <div class="modal-buttons-row">-->
+<!--      <div class="modal-button" (click)="confirmationModal.hide()">-->
+<!--        Да-->
+<!--      </div>-->
+<!--      <div class="modal-button" (click)="confirmationModal.hide()">-->
+<!--        Не-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</app-modal>-->

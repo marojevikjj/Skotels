@@ -10,6 +10,9 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ModalComponent } from './modal/modal.component';
+import { HotelInfoComponent } from './hotel-info/hotel-info.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -45,12 +48,15 @@ const routes: Routes = [
     MapComponent,
     HotelsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ModalComponent,
+    HotelInfoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

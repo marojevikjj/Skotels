@@ -1,0 +1,18 @@
+<div class="modal" *ngIf="visible" [ngStyle]="{
+    'width':width + 'px',
+    'height': height + 'px',
+    'top': 'calc(50% - ' + (height/2) + 'px)',
+    'left': 'calc(50% - ' + (width/2) + 'px)'
+    }">
+  <div class="modal-header">
+    <div class="modal-header-title" [innerHTML]="modalTitle">
+    </div>
+    <div>
+      <span (click)="hide()"><span class="material-icons">close</span></span>
+    </div>
+  </div>
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+</div>
+
