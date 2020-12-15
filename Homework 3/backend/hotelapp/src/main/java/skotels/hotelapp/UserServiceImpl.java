@@ -14,18 +14,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<Users> save(String username, String password) {
-        return Optional.of(userRepository.save(new Users(username, password)));
+    public Optional<Users> save(String username, String password, boolean isAdmin) {
+        return Optional.of(userRepository.save(new Users(username, password, isAdmin)));
     }
 
     @Override
-    public Users register(String username, String password) {
-        Users user = new Users(username,password);
+    public Users register(String username, String password, boolean isAdmin) {
+        Users user = new Users(username,password, isAdmin);
         return userRepository.save(user);
     }
 
     @Override
     public Optional<Users> findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public Optional<Users> findByUsernameAndPassword(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password);
     }
 }

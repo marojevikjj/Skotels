@@ -19,12 +19,15 @@ public class Hotels {
     private String phone;
     private String website;
     private String stars;
+    private String latitude;
+    private String longitude;
 
     public Hotels() {
     }
 
     public Hotels(String _id, String name, String email, String fax, String internet_access,
-                  String rooms, String phone, String website, String stars) {
+                  String rooms, String phone, String website, String stars, String latitude,
+                  String longitude) {
         this._id = _id;
         this.name = name;
         this.email = email;
@@ -34,5 +37,7 @@ public class Hotels {
         this.phone = phone;
         this.website = website;
         this.stars = stars;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 }

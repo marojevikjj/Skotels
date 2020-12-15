@@ -15,7 +15,7 @@ public class RegisterController {
 
     @PostMapping
     public ResponseEntity<Users> signUp (@RequestBody Users newUser){
-        return userService.save(newUser.getUsername(), newUser.getPassword())
+        return userService.save(newUser.getUsername(), newUser.getPassword(), newUser.isAdmin())
                 .map(user -> ResponseEntity.ok().body(user))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
