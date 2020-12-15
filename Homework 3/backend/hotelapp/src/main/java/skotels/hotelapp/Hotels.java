@@ -1,6 +1,7 @@
 package skotels.hotelapp;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Hotels {
 
     @Id
-    private String _id;
+    private ObjectId _id;
 
     private String name;
     private String email;
@@ -25,10 +26,10 @@ public class Hotels {
     public Hotels() {
     }
 
-    public Hotels(String _id, String name, String email, String fax, String internet_access,
+    public Hotels(String name, String email, String fax, String internet_access,
                   String rooms, String phone, String website, String stars, String latitude,
                   String longitude) {
-        this._id = _id;
+        this._id = new ObjectId();
         this.name = name;
         this.email = email;
         this.fax = fax;
