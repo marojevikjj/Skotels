@@ -1,0 +1,41 @@
+<div class="login-container">
+<div class="wrapper">
+  <div class="header">
+    <div>LOG IN</div>
+<!--    <div>Logging in/register is completely optional and it is used for enhancing user experience. You can-->
+<!--    use all of the web sites functionalities even if you are not logged in. </div>-->
+  </div>
+  <div class="login">
+    <form [formGroup]="loginFG">
+      <div class="field">
+        <input type="text" placeholder="Enter your email" formControlName="email" required class="username-input">
+      </div>
+      <div class="field">
+        <input type="password" placeholder="Password" formControlName="password" required class="password-input">
+      </div>
+      <div class="message-alert" *ngIf="error">
+        {{error}}
+      </div>
+    </form>
+<!--      <div class="buttonDiv">-->
+<!--        <button type="button" class="log-in-button">SIGN IN</button>-->
+<!--      </div>-->
+
+
+    <form [formGroup]="userFG">
+      <div class="login-type">
+      <input type="radio" formControlName="user" name="type" >Log in as user
+      <input type="radio" formControlName="admin" name="type">Log in as admin
+      </div>
+    </form>
+    <div class="buttonDiv">
+      <button type="button" class="log-in-button">SIGN IN</button>
+    </div>
+  </div>
+  <div class="signup" (click)="goToSignUp()">
+    <p>
+      <a>Don't have an account? Sign up</a>
+    </p>
+  </div>
+</div>
+</div>

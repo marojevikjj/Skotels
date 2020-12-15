@@ -1,0 +1,33 @@
+.modal {
+  background-color: whitesmoke;
+  border: 1px solid lightgray;
+  border-radius: 9px;
+  box-shadow: 0 0 5px 5px lightgray;
+  position: fixed;
+  /*top: calc(50% - 500px);*/
+  /*left: calc(50% - 200px);*/
+  max-width: 800px;
+  max-height: 800px;
+  min-width: 400px;
+  z-index: 1000;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  background-image: linear-gradient(135deg,#001f58,black);
+  justify-content: space-between;
+  color: white;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+.material-icons{
+  vertical-align: middle;
+  font-size: 15px;
+  font-weight: bold;
+}
+.material-icons:hover {
+  cursor: pointer;
+}
+
