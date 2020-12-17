@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {UserServiceService} from '../../services/user-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,12 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   loginFG: FormGroup;
   error: string;
-  userFG: FormGroup;
-
   constructor(private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private userService: UserServiceService) {
     this.loginFG = fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
-    });
-    this.userFG = fb.group({
-      user: ['', Validators.required],
-      admin: ['', Validators.required]
     });
   }
 
@@ -28,6 +24,18 @@ export class LoginComponent implements OnInit {
   }
   goToSignUp(): void {
     this.router.navigate(['./signup']);
+  }
+
+  // tslint:disable-next-line:typedef
+  async login() {
+    const loginDetails = this.loginFG.value;
+    try {
+      const token = await this.userService.login(loginDetails);
+      this.error = null;
+      await this.router.navigate(['/home']);
+    } catch (err) {
+      this.error = err.error;
+    }
   }
 
 }

@@ -19,10 +19,23 @@ export class HotelsServiceService {
     return this.http.get<HotelsModel[]>(this.hotelsUrl);
   }
   // edit
+  public editHotel(data: HotelsModel, id: string): Promise<HotelsModel> {
+    return this.http
+      .put<HotelsModel>(`${this.hotelsUrl}/edit?id=${id}`, data)
+      .toPromise();
+  }
   // delete
+  deleteHotel(id: string): Promise<HotelsModel> {
+    return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete?id=${id}`).toPromise() ;
+  }
   // sort
+  public sortByStars(): Observable<HotelsModel[]> {
+    return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortbystars`);
+  }
+
+  public sortByPrice(): Observable<HotelsModel[]> {
+    return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortbyprice`);
+  }
   // search
-
-
 
 }
