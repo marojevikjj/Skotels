@@ -35,7 +35,7 @@ export class AddEditHotelComponent implements OnInit {
   discard(): void {
     this.router.navigate(['/hotels']);
   }
-  async sumbitHotel() {
+  async submitHotel() {
     const data = this.hotelsFG.getRawValue();
     await this.hotelService.add(data);
     await this.router.navigate(['/hotels']);

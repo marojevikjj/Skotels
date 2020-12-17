@@ -74,7 +74,7 @@
   <div class="buttons">
 <!--    <button class="save" *ngIf="saveEditButton"  (click)="sumbitHotel()" [ngClass]="{'disabled': !hotelsFG.valid}">Зачувај</button>-->
 <!--    <button class="save" *ngIf="!saveEditButton" (click)="submitChanges()">Промени</button>-->
-    <button class="save"(click)="sumbitHotel()" [ngClass]="{'disabled': !hotelsFG.valid}">Save</button>
+    <button class="save" (click)="submitHotel()" [ngClass]="{'disabled': !hotelsFG.valid}">Save</button>
     <button class="discard" (click)="discard()">Discard</button>
   </div>
 </div>

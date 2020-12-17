@@ -13,7 +13,7 @@ export class HotelsServiceService {
     this.hotelsUrl = 'http://localhost:8080/api/hotels';
   }
   public add(hotel: HotelsModel): Observable<HotelsModel> {
-    return this.http.post<HotelsModel>(this.hotelsUrl, HotelsModel);
+    return this.http.post<HotelsModel>(`${this.hotelsUrl}/save`, hotel);
   }
   public findAll(): Observable<HotelsModel[]> {
     return this.http.get<HotelsModel[]>(this.hotelsUrl);
