@@ -14,7 +14,7 @@ public class Hotels {
 
     private String name;
     private String email;
-    private String fax;
+    private String location;
     private String internet_access;
     private String rooms;
     private String phone;
@@ -26,13 +26,13 @@ public class Hotels {
     public Hotels() {
     }
 
-    public Hotels(String name, String email, String fax, String internet_access,
+    public Hotels(String name, String email, String location, String internet_access,
                   String rooms, String phone, String website, String stars, String latitude,
                   String longitude) {
         this._id = new ObjectId();
         this.name = name;
         this.email = email;
-        this.fax = fax;
+        this.location = location;
         this.internet_access = internet_access;
         this.rooms = rooms;
         this.phone = phone;
