@@ -19,18 +19,16 @@
   <ol>
   <li>The system shall provide information about all hotels in a given area.</li>
   <li>The system shall provide a map with the location of each hotel.</li>
-  <li>The system shall enable customers to review all details of the selected hotel.</li>
+  <li>The system shall provide a list with the information of each hotel.</li>
   <li>The system shall enable customers to check the availability of rooms.</li>
   <li>The system shall provide an option for booking a room in the selected hotel.</li>
   <li>The system shall provide a navigation tool for routing</li>
-  <li>The system shall store the routes in the database</li>
   <li>The system shall support two types of users: administrator and user.</li>
   <li>The system shall enable the administrator to add/remove hotels.</li>
   <li>The system shall enable searching of hotels.</li>
-  <li>The system shall allow customers to rate/write reviews about visited hotels.</li>
   <li>The system shall be available in English and Macedonian language.</li>
   <li>The system shall provide user management.</li>
-  <li>The system shall provide logging in/logging out.</li>
+  <li>The system shall provide logging in</li>
   <li>The system shall provide registering of a new user</li>
   </ol>
 
