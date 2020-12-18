@@ -4,11 +4,11 @@
   <div class="search"><input type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
   <div class="sort"><button (click)="sort_stars()">Sort by stars</button></div>
   <div class="sort"><button (click)="sort_price()">Sort by price</button></div>
-  <div class="sort"><button (click)="add_hotel()">Add hotel</button></div>
+  <div class="sort" *ngIf="user!=null"><button *ngIf="user.admin" (click)="add_hotel()">Add hotel</button></div>
   <div class="hotel-list">
     <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index">
       <div class="hotel-name">{{h.name}}
-        <span class="material-icons delete" (click)="hotelIndex=i;confirmationModal.show()">delete</span>
+        <span *ngIf="user!=null"><span *ngIf= "user.admin" class="material-icons delete" (click)="hotelIndex=i;confirmationModal.show()">delete</span></span>
       </div>
         <div class="map">
           <div class="map-image">
@@ -44,18 +44,4 @@
   </div>
 </app-modal>
 
-<!--<app-modal #confirmationModal [modalTitle]="'Бришење на здруженија'" [height]="170">-->
-<!--  <div class="modal-container">-->
-<!--    <div class="modal-title">-->
-<!--      Дали сте сигурни дека сакате да го избришете здружението ?-->
-<!--    </div>-->
-<!--    <div class="modal-buttons-row">-->
-<!--      <div class="modal-button" (click)="confirmationModal.hide()">-->
-<!--        Да-->
-<!--      </div>-->
-<!--      <div class="modal-button" (click)="confirmationModal.hide()">-->
-<!--        Не-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</app-modal>-->
+

@@ -25,8 +25,11 @@ export class HotelsServiceService {
       .toPromise();
   }
   // delete
+  // deleteHotel(id: string): Promise<HotelsModel> {
+  //   return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete?id=${id}`).toPromise() ;
+  // }
   deleteHotel(id: string): Promise<HotelsModel> {
-    return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete?id=${id}`).toPromise() ;
+    return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete/${id}`).toPromise() ;
   }
   // sort
   public sortByStars(): Observable<HotelsModel[]> {

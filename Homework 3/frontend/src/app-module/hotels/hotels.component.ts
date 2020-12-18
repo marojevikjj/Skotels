@@ -4,6 +4,8 @@ import {FormControl} from '@angular/forms';
 import {HotelsModel} from '../../models/hotels.model';
 import {HotelsServiceService} from '../../services/hotels-service.service';
 import {Router} from '@angular/router';
+import {UsersModel} from '../../models/users.model';
+import {UserServiceService} from '../../services/user-service.service';
 
 @Component({
   selector: 'app-hotels',
@@ -17,15 +19,17 @@ export class HotelsComponent implements OnInit {
   hotelIndex: any;
   currentHotel = {};
   searchText;
+  user: any;
 
   constructor(private hotelService: HotelsServiceService,
-              private router: Router) { }
+              private router: Router,
+              private userService: UserServiceService) { }
 
   ngOnInit(): void {
     this.hotelService.findAll().subscribe(data => {
       this.hotels = data;
-      console.log(this.hotels);
     });
+    this.user = this.userService.getUser();
   }
   show_info(hotel): void {
     this.currentHotel = hotel;

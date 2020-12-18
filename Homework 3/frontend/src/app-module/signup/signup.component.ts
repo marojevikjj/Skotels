@@ -24,7 +24,11 @@ export class SignupComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    this.userService.register(this.user).subscribe(result => this.goToLogin());
+    const data = this.signUpFG.getRawValue();
+    this.userService.register(data).subscribe(result => {
+      this.toastr.success('You have successfully created a user');
+      this.goToLogin();
+    });
   }
 
   ngOnInit(): void {
@@ -32,11 +36,11 @@ export class SignupComponent implements OnInit {
   goToLogin(): void {
     this.router.navigate(['./login']);
   }
-  async registerUser() {
-    const data = this.signUpFG.getRawValue();
-    await this.userService.register(data);
-    await this.router.navigate(['/associations/list']);
-    this.toastr.success('You have successfully created a user');
-  }
+  // async registerUser() {
+  //   const data = this.signUpFG.getRawValue();
+  //   await this.userService.register(data).subscribe();
+  //   await this.router.navigate(['/associations/list']);
+  //   this.toastr.success('You have successfully created a user');
+  // }
 
 }

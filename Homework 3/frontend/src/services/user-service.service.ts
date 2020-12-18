@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class UserServiceService {
   private usersUrl: string;
+  private user: UsersModel = null;
   constructor(private http: HttpClient) {
     this.usersUrl = 'http://localhost:8080/api';
   }
@@ -15,7 +16,13 @@ export class UserServiceService {
     return this.http.post<UsersModel>(`${this.usersUrl}/signup`, user);
   }
   // login admin
-  login(data: UsersModel){
-    return this.http.post<UsersModel>(`${this.usersUrl}/login`, data).toPromise();
+  login(user: UsersModel): Observable<UsersModel>{
+    return this.http.post<UsersModel>(`${this.usersUrl}/login`, user);
+  }
+  getUser(): UsersModel {
+    return this.user;
+  }
+  setUser(current: UsersModel): void {
+    this.user = current;
   }
 }

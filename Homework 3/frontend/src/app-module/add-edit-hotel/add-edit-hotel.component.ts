@@ -37,7 +37,7 @@ export class AddEditHotelComponent implements OnInit {
   }
   async submitHotel() {
     const data = this.hotelsFG.getRawValue();
-    await this.hotelService.add(data);
+    await this.hotelService.add(data).subscribe();
     await this.router.navigate(['/hotels']);
     this.toastr.success('You successfully added a hotel!');
   }
