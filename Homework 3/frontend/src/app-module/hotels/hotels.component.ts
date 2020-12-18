@@ -6,6 +6,7 @@ import {HotelsServiceService} from '../../services/hotels-service.service';
 import {Router} from '@angular/router';
 import {UsersModel} from '../../models/users.model';
 import {UserServiceService} from '../../services/user-service.service';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hotels',
@@ -14,16 +15,20 @@ import {UserServiceService} from '../../services/user-service.service';
 })
 export class HotelsComponent implements OnInit {
   @ViewChild('hotelInfo') hotelInfo: ModalComponent;
+  @ViewChild('hotelMap') hotelMap: ModalComponent;
   search = new FormControl('');
   hotels: HotelsModel[];
   hotelIndex: any;
-  currentHotel = {};
+  currentHotel: any;
   searchText;
   user: any;
+  currentHotelMap: any;
+  location: any;
 
   constructor(private hotelService: HotelsServiceService,
               private router: Router,
-              private userService: UserServiceService) { }
+              private userService: UserServiceService,
+              private dom: DomSanitizer) { }
 
   ngOnInit(): void {
     this.hotelService.findAll().subscribe(data => {
@@ -35,6 +40,12 @@ export class HotelsComponent implements OnInit {
     this.currentHotel = hotel;
     this.hotelInfo.show();
   }
+  show_map(hotel): void {
+    this.currentHotelMap = hotel;
+    this.location = this.currentHotelMap.location;
+    console.log('location from hotels',this.location)
+    this.hotelMap.show();
+  }
   close_modal(): void {
     this.hotelInfo.hide();
   }
@@ -44,7 +55,7 @@ export class HotelsComponent implements OnInit {
     });
   }
   async deleteHotel(index): Promise<void> {
-    await this.hotelService.deleteHotel(this.hotels[index]._id);
+    await this.hotelService.deleteHotel(this.hotels[index]._id).subscribe();
     await this.list_hotels();
   }
   async sort_stars(): Promise<void> {

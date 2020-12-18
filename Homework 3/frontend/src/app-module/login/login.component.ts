@@ -43,12 +43,11 @@ export class LoginComponent implements OnInit {
   async login() {
     const loginDetails = this.loginFG.getRawValue();
     this.user = await this.userService.login(loginDetails).toPromise();
-    console.log(this.user);
     if (this.user == null) {
       this.error = true;
       console.log('not logged in');
     } else {
-      this.userService.setUser(this.user)
+      this.userService.setUser(this.user);
       await this.router.navigate(['/home']);
     }
 

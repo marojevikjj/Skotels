@@ -28,8 +28,8 @@ export class HotelsServiceService {
   // deleteHotel(id: string): Promise<HotelsModel> {
   //   return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete?id=${id}`).toPromise() ;
   // }
-  deleteHotel(id: string): Promise<HotelsModel> {
-    return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete/${id}`).toPromise() ;
+  deleteHotel(id: string): Observable<HotelsModel[]> {
+    return this.http.delete<HotelsModel[]>(`${this.hotelsUrl}/delete/${id}`);
   }
   // sort
   public sortByStars(): Observable<HotelsModel[]> {
@@ -40,5 +40,6 @@ export class HotelsServiceService {
     return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortbyprice`);
   }
   // search
+  // AIzaSyDB4R7MbHUmwlExVnCjwinN4xzzGd4-C14
 
 }

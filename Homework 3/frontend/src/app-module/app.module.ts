@@ -17,6 +17,8 @@ import {ToastrModule} from 'ngx-toastr';
 import { AddEditHotelComponent } from './add-edit-hotel/add-edit-hotel.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AgmCoreModule} from '@agm/core';
+import { HotelMapComponent } from './hotel-map/hotel-map.component';
 
 const routes: Routes = [
   {
@@ -58,7 +60,8 @@ const routes: Routes = [
     SignupComponent,
     ModalComponent,
     HotelInfoComponent,
-    AddEditHotelComponent
+    AddEditHotelComponent,
+    HotelMapComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,10 @@ const routes: Routes = [
     ToastrModule.forRoot(),
     FormsModule,
     Ng2SearchPipeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDB4R7MbHUmwlExVnCjwinN4xzzGd4-C14'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 export class HotelsModel {
+  public location: string;
   public _id: string;
   public name: string;
   public email: string;
