@@ -9,10 +9,16 @@ import { MapComponent } from './map/map.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { HotelInfoComponent } from './hotel-info/hotel-info.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ToastrModule} from 'ngx-toastr';
+import { AddEditHotelComponent } from './add-edit-hotel/add-edit-hotel.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AgmCoreModule} from '@agm/core';
+import { HotelMapComponent } from './hotel-map/hotel-map.component';
 
 const routes: Routes = [
   {
@@ -36,6 +42,9 @@ const routes: Routes = [
   {
     path: 'signup', component: SignupComponent,
   },
+  {
+    path: 'add-edit', component: AddEditHotelComponent
+  }
 ];
 
 
@@ -50,13 +59,22 @@ const routes: Routes = [
     LoginComponent,
     SignupComponent,
     ModalComponent,
-    HotelInfoComponent
+    HotelInfoComponent,
+    AddEditHotelComponent,
+    HotelMapComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    FormsModule,
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDB4R7MbHUmwlExVnCjwinN4xzzGd4-C14'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

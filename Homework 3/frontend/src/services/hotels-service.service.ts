@@ -13,16 +13,33 @@ export class HotelsServiceService {
     this.hotelsUrl = 'http://localhost:8080/api/hotels';
   }
   public add(hotel: HotelsModel): Observable<HotelsModel> {
-    return this.http.post<HotelsModel>(this.hotelsUrl, HotelsModel);
+    return this.http.post<HotelsModel>(`${this.hotelsUrl}/save`, hotel);
   }
   public findAll(): Observable<HotelsModel[]> {
     return this.http.get<HotelsModel[]>(this.hotelsUrl);
   }
   // edit
+  public editHotel(data: HotelsModel, id: string): Promise<HotelsModel> {
+    return this.http
+      .put<HotelsModel>(`${this.hotelsUrl}/edit?id=${id}`, data)
+      .toPromise();
+  }
   // delete
+  // deleteHotel(id: string): Promise<HotelsModel> {
+  //   return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete?id=${id}`).toPromise() ;
+  // }
+  deleteHotel(id: string): Observable<HotelsModel[]> {
+    return this.http.delete<HotelsModel[]>(`${this.hotelsUrl}/delete/${id}`);
+  }
   // sort
+  public sortByStars(): Observable<HotelsModel[]> {
+    return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortbystars`);
+  }
+
+  public sortByPrice(): Observable<HotelsModel[]> {
+    return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortbyprice`);
+  }
   // search
-
-
+  // AIzaSyDB4R7MbHUmwlExVnCjwinN4xzzGd4-C14
 
 }

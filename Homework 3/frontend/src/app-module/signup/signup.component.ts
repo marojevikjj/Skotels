@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UsersModel} from '../../models/users.model';
 import {UserServiceService} from '../../services/user-service.service';
+import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -13,7 +14,8 @@ export class SignupComponent implements OnInit {
   signUpFG: FormGroup;
   constructor(private fb: FormBuilder,
               private router: Router,
-              private userService: UserServiceService) {
+              private userService: UserServiceService,
+              private toastr: ToastrService) {
     this.signUpFG = fb.group({
       email: ['', Validators.required],
       username: ['', Validators.required],
@@ -22,7 +24,11 @@ export class SignupComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    this.userService.register(this.user).subscribe(result => this.goToLogin());
+    const data = this.signUpFG.getRawValue();
+    this.userService.register(data).subscribe(result => {
+      this.toastr.success('You have successfully created a user');
+      this.goToLogin();
+    });
   }
 
   ngOnInit(): void {
@@ -30,5 +36,11 @@ export class SignupComponent implements OnInit {
   goToLogin(): void {
     this.router.navigate(['./login']);
   }
+  // async registerUser() {
+  //   const data = this.signUpFG.getRawValue();
+  //   await this.userService.register(data).subscribe();
+  //   await this.router.navigate(['/associations/list']);
+  //   this.toastr.success('You have successfully created a user');
+  // }
 
 }
