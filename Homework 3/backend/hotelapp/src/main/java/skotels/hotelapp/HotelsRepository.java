@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface HotelsRepository extends MongoRepository<Hotels, String> {
     List<Hotels> findAllByNameContains (String name);
+    void deleteByName(String name);
 }

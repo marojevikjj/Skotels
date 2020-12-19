@@ -28,8 +28,8 @@ export class HotelsServiceService {
   // deleteHotel(id: string): Promise<HotelsModel> {
   //   return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete?id=${id}`).toPromise() ;
   // }
-  deleteHotel(id: string): Observable<HotelsModel[]> {
-    return this.http.delete<HotelsModel[]>(`${this.hotelsUrl}/delete/${id}`);
+  deleteHotel(hotel: HotelsModel): Observable<HotelsModel[]> {
+    return this.http.post<HotelsModel[]>(`${this.hotelsUrl}/delete`, hotel);
   }
   // sort
   public sortByStars(): Observable<HotelsModel[]> {
