@@ -43,7 +43,7 @@ export class HotelsComponent implements OnInit {
   show_map(hotel): void {
     this.currentHotelMap = hotel;
     this.location = this.currentHotelMap.location;
-    console.log('location from hotels',this.location)
+    console.log('location from hotels', this.location);
     this.hotelMap.show();
   }
   close_modal(): void {
@@ -55,7 +55,9 @@ export class HotelsComponent implements OnInit {
     });
   }
   async deleteHotel(index): Promise<void> {
-    await this.hotelService.deleteHotel(this.hotels[index]._id).subscribe();
+    await this.hotelService.deleteHotel(this.hotels[index]).subscribe(data => {
+      this.hotels = data;
+    });
     await this.list_hotels();
   }
   async sort_stars(): Promise<void> {
