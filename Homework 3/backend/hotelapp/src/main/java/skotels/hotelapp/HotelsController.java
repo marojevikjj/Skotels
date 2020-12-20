@@ -19,8 +19,16 @@ public class HotelsController {
     }
 
     @GetMapping
-    public List<Hotels> listAll(){
+    public List<Hotels> getAllHotels() {
         return hotelsRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Hotels getById(@RequestBody String _id){
+        if(hotelsRepository.findById(_id).isPresent()){
+            return hotelsRepository.findById(_id).get();
+        }
+        return null;
     }
 
     @PostMapping("/searchHotels")
