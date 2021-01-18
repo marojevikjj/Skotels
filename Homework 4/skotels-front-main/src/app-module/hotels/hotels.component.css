@@ -1,0 +1,267 @@
+.title-container {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+}
+.hotels-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 40px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.hotel-list {
+  display: flex;
+  flex-direction: row;
+  padding-left: 150px;
+  flex-wrap: wrap;
+}
+
+.hotel-card {
+  height: 400px;
+  width: 300px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  margin: 40px;
+}
+button {
+  padding: 10px;
+  margin: 15px;
+}
+button:hover {
+  cursor: pointer;
+}
+.hotel-name {
+  padding: 20px;
+  font-size: 24px;
+  border-bottom: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.delete:hover {
+  cursor:pointer;
+}
+.buttons {
+  margin-top: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.map-image {
+  height: 170px;
+  width: 170px;
+  background-image: url("../../assets/map-small.jpg");
+  opacity: 0.8;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+}
+.darken-image{
+  position: absolute;
+  box-sizing: border-box;
+  opacity: 0.6;
+  height: 170px;
+  width: 170px;
+  background-color: black;
+}
+.map-image-text {
+  z-index: 3;
+  font-weight: 800;
+  font-size: 23px;
+  padding-top: 70px;
+
+}
+.map {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.map:hover {
+  cursor: pointer;
+}
+.search {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+input {
+  width: 300px;
+  height: 30px;
+}
+.sort{
+  margin-left:180px;
+}
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  min-width: 300px;
+  box-sizing: border-box !important;
+}
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+.modal-buttons-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.modal-button {
+  cursor: pointer;
+  color: black;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 10px 0;
+  margin-right: 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 250, 250, 0.98);
+  text-align: center;
+}
+.modal-button:hover {
+  background-color: lightgray;
+  transition: 0.4s;
+}
+/*.title-container {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  border-bottom: 1px solid lightgray;*/
+
+/*}*/
+/*body{*/
+/*  background-color: antiquewhite;*/
+/*}*/
+/*.hotels-container {*/
+/*  margin-top: 80px;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  background-color: antiquewhite;*/
+/*}*/
+/*.title {*/
+/*  margin-bottom: 20px;*/
+/*  letter-spacing: 1px;*/
+/*  font-weight: bold;*/
+/*  font-size: 50px;*/
+/*  padding-top: 20px;*/
+/*}*/
+/*.hotel-list {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  padding-left: 200px; !*150*!*/
+/*  padding-right: 200px;*/
+/*  flex-wrap: wrap;*/
+/*}*/
+
+/*.hotel-card {*/
+/*  height: 420px;*/
+/*  width: 330px;*/
+/*  background-color: black;*/
+/*  color: white;*/
+/*  border-radius: 30px;*/
+/*  margin: 105px;*/
+
+/*}*/
+/*button {*/
+/*  padding: 10px;*/
+/*  margin: 30px;*/
+/*  transition-duration: 0.5s;*/
+/*  !*color: #fff;*!*/
+/*  color: black;*/
+/*  background-color: #d2a8a0;*/
+/*  border-color: #c79288;*/
+/*  border-radius: 10px;*/
+/*}*/
+/*button:hover {*/
+/*  cursor: pointer;*/
+/*  transform: scale(1.2);*/
+/*  background-color: #fae2d7;*/
+/*}*/
+/*.hotel-name {*/
+/*  padding: 20px;*/
+/*  font-size: 26px;*/
+/*  height: 50px;*/
+/*  border-bottom: 1px solid white;*/
+/*  text-align: center;*/
+/*  text-decoration-style: double;*/
+/*  !*color: #c79288;*!*/
+/*  color: #d2a8a0;*/
+/*}*/
+/*.buttons {*/
+/*  margin-top: 17px;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/
+/*a {*/
+/*  text-decoration: none;*/
+/*  color: black;*/
+/*}*/
+/*.map-image {*/
+/*  height: 170px;*/
+/*  width: 170px;*/
+/*  background-image: url("../../assets/map-small.jpg");*/
+/*  opacity: 0.8;*/
+/*  background-size: cover;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  vertical-align: center;*/
+/*}*/
+/*.darken-image{*/
+/*  position: absolute;*/
+/*  box-sizing: border-box;*/
+/*  opacity: 0.6;*/
+/*  height: 170px;*/
+/*  width: 170px;*/
+/*  background-color: black;*/
+/*}*/
+/*.map-image-text {*/
+/*  z-index: 3;*/
+/*  font-weight: 800;*/
+/*  font-size: 23px;*/
+/*  padding-top: 70px;*/
+
+/*}*/
+/*.map {*/
+/*  margin-top: 20px;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*}*/
+/*.map:hover {*/
+/*  cursor: pointer;*/
+/*  transform: scale(1.1);*/
+/*}*/
+/*.search {*/
+/*  display: flex;*/
+/*  justify-content: flex-end;*/
+/*  padding-top: 30px;*/
+/*  padding-right: 250px;*/
+/*}*/
+/*input {*/
+/*  width: 300px;*/
+/*  height: 40px;*/
+/*  box-shadow: 0 3px 20px gray;*/
+/*}*/
+/*.sort{*/
+/*  margin-left:180px;*/
+/*}*/
+
