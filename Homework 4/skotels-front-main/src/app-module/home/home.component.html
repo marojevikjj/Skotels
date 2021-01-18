@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="darken-image"></div>
+  <div class="home-content">
+    <div class="title">Welcome to Skotels <span *ngIf="user!=null">{{user?.username}}!</span></div>
+    <div class="text">Reserve today and enjoy your stay</div>
+    <button class="button" (click)="goToMap()">Show map</button>
+  </div>
+</div>
