@@ -26,7 +26,6 @@
   <li>The system shall support two types of users: administrator and user.</li>
   <li>The system shall enable the administrator to add/remove hotels.</li>
   <li>The system shall enable searching of hotels.</li>
-  <li>The system shall be available in English and Macedonian language.</li>
   <li>The system shall provide user management.</li>
   <li>The system shall provide logging in</li>
   <li>The system shall provide registering of a new user</li>
