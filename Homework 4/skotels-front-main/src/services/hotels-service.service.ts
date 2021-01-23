@@ -36,8 +36,8 @@ export class HotelsServiceService {
     return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortbystars`);
   }
 
-  public sortByPrice(): Observable<HotelsModel[]> {
-    return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortbyprice`);
+  public sortAlphabetic(): Observable<HotelsModel[]> {
+    return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortalphabetic`);
   }
   // search
   // AIzaSyDB4R7MbHUmwlExVnCjwinN4xzzGd4-C14

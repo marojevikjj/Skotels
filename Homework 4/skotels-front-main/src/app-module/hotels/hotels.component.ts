@@ -65,8 +65,8 @@ export class HotelsComponent implements OnInit {
       this.hotels = data;
     });
   }
-  async sort_price(): Promise<void> {
-    await this.hotelService.sortByPrice().subscribe(data => {
+  async sortAlphabetic(): Promise<void> {
+    await this.hotelService.sortAlphabetic().subscribe(data => {
       this.hotels = data;
     });
   }
