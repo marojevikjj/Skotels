@@ -18,16 +18,7 @@ export class HotelsServiceService {
   public findAll(): Observable<HotelsModel[]> {
     return this.http.get<HotelsModel[]>(this.hotelsUrl);
   }
-  // edit
-  public editHotel(data: HotelsModel, id: string): Promise<HotelsModel> {
-    return this.http
-      .put<HotelsModel>(`${this.hotelsUrl}/edit?id=${id}`, data)
-      .toPromise();
-  }
   // delete
-  // deleteHotel(id: string): Promise<HotelsModel> {
-  //   return this.http.delete<HotelsModel>(`${this.hotelsUrl}/delete?id=${id}`).toPromise() ;
-  // }
   deleteHotel(hotel: HotelsModel): Observable<HotelsModel[]> {
     return this.http.post<HotelsModel[]>(`${this.hotelsUrl}/delete`, hotel);
   }
@@ -39,7 +30,5 @@ export class HotelsServiceService {
   public sortAlphabetic(): Observable<HotelsModel[]> {
     return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/sortalphabetic`);
   }
-  // search
-  // AIzaSyDB4R7MbHUmwlExVnCjwinN4xzzGd4-C14
 
 }
