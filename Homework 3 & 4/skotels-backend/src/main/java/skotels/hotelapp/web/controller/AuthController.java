@@ -21,6 +21,7 @@ import skotels.hotelapp.repository.UserRepository;
 import skotels.hotelapp.security.jwt.JwtUtils;
 import skotels.hotelapp.model.User;
 import skotels.hotelapp.service.implementation.UserDetailsImpl;
+import skotels.hotelapp.service.implementation.UserDetailsServiceImpl;
 
 import javax.validation.Valid;
 import java.util.HashSet;
@@ -34,18 +35,18 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AuthController {
     private final AuthenticationManager authenticationManager;
-    private final UserRepository userRepository;
+    private final UserDetailsServiceImpl userService;
     private final RoleRepository roleRepository;
     private final PasswordEncoder encoder;
     private final JwtUtils jwtUtils;
 
     public AuthController(AuthenticationManager authenticationManager,
-                          UserRepository userRepository,
+                          UserDetailsServiceImpl userService,
                           RoleRepository roleRepository,
                           PasswordEncoder encoder,
                           JwtUtils jwtUtils) {
         this.authenticationManager = authenticationManager;
-        this.userRepository = userRepository;
+        this.userService = userService;
         this.roleRepository = roleRepository;
         this.encoder = encoder;
         this.jwtUtils = jwtUtils;
@@ -73,7 +74,7 @@ public class AuthController {
 
     @PostMapping("/api/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+        if (userService.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: Username is already taken!"));
@@ -105,7 +106,7 @@ public class AuthController {
         }
 
         user.setRoles(roles);
-        userRepository.save(user);
+        userService.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
