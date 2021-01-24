@@ -87,3 +87,8 @@ a:hover {
 .login-type {
   color: white;
 }
+.disabled {
+  background-color: lightgray!important;
+  color: grey!important;
+  pointer-events: none;
+}

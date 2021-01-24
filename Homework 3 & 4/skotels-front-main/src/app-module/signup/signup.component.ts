@@ -17,11 +17,15 @@ export class SignupComponent implements OnInit {
               private userService: UserServiceService,
               private toastr: ToastrService) {
     this.signUpFG = fb.group({
-      email: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
       repeatPassword: ['', Validators.required],
-    });
+    },
+        {validator: this.passwordMatchValidator}
+    );
+  }
+  passwordMatchValidator(frm: FormGroup) {
+    return frm.controls['password'].value === frm.controls['repeatPassword'].value ? null : {'mismatch': true};
   }
   onSubmit(): void {
     const data = this.signUpFG.getRawValue();
@@ -36,11 +40,6 @@ export class SignupComponent implements OnInit {
   goToLogin(): void {
     this.router.navigate(['./login']);
   }
-  // async registerUser() {
-  //   const data = this.signUpFG.getRawValue();
-  //   await this.userService.register(data).subscribe();
-  //   await this.router.navigate(['/associations/list']);
-  //   this.toastr.success('You have successfully created a user');
-  // }
+
 
 }

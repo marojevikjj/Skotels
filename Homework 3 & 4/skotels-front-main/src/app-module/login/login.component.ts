@@ -27,19 +27,6 @@ export class LoginComponent implements OnInit {
   goToSignUp(): void {
     this.router.navigate(['./signup']);
   }
-
-  // tslint:disable-next-line:typedef
-  // async login() {
-  //   const loginDetails = this.loginFG.value;
-  //   try {
-  //     const user = await this.userService.login(loginDetails).subscribe();
-  //     console.log(user);
-  //     this.error = null;
-  //     await this.router.navigate(['/home']);
-  //   } catch (err) {
-  //     this.error = err.error;
-  //   }
-  // }
   async login() {
     const loginDetails = this.loginFG.getRawValue();
     this.user = await this.userService.login(loginDetails).toPromise();

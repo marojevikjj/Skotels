@@ -9,20 +9,20 @@
 <!--          <input type="text" placeholder="Enter your email" formControlName="email" required class="username-input">-->
 <!--        </div>-->
         <div class="field">
-          <input type="text" placeholder="Enter username" formControlName="username" required class="username-input">
+          <input type="text" placeholder="Enter username" formControlName="username" required class="username-input" minlength="">
         </div>
         <div class="field">
-          <input type="password" placeholder="Enter password" formControlName="password" required class="password-input">
+          <input type="password" placeholder="Enter password" formControlName="password" required class="password-input" minlength="5">
         </div>
         <div class="field">
-          <input type="password" placeholder="Confirm password" formControlName="repeatPassword" required class="username-input">
+          <input type="password" placeholder="Confirm password" formControlName="repeatPassword" required class="username-input" minlength="5">
         </div>
-<!--        <div class="message-alert" *ngIf="error">-->
-<!--          {{error}}-->
-<!--        </div>-->
+          <div class="invalid-feedback" *ngIf="signUpFG.errors?.mismatch && (signUpFG.controls['repeatPassword'].dirty || signUpFG.controls['repeatPassword'].touched)">
+              Passwords don't match.
+          </div>
       </form>
       <div class="buttonDiv">
-        <button type="button" class="log-in-button" (click)="onSubmit()">SIGN UP</button>
+        <button type="button" class="log-in-button" (click)="onSubmit()" [ngClass]="{'disabled': !signUpFG.valid}">SIGN UP</button>
       </div>
     </div>
   </div>

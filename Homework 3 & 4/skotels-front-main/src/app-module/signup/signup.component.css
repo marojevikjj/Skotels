@@ -84,3 +84,8 @@ a {
 a:hover {
   cursor: pointer;
 }
+.disabled {
+  background-color: lightgray!important;
+  color: grey!important;
+  pointer-events: none;
+}
