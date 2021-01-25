@@ -2,6 +2,7 @@ package skotels.hotelapp.web.controller;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import skotels.hotelapp.model.Hotels;
 import skotels.hotelapp.repository.HotelsRepository;
@@ -37,6 +38,8 @@ public class HotelsController {
     public List<Hotels> findAllByName(@RequestParam String search){
         return hotelsRepository.findAllByNameContains(search);
     }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/edit/{id}")
     public ResponseEntity<Hotels> editHotelPage(@PathVariable String id){
         return this.hotelsRepository.findById(id).map(hotels ->
@@ -44,6 +47,7 @@ public class HotelsController {
                 ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/save")
     public List<Hotels> saveHotel(@RequestBody Hotels hotel){
         System.out.println("No");
@@ -52,6 +56,7 @@ public class HotelsController {
         return this.hotelsRepository.findAll();
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/delete")
     public List<Hotels> deleteHotel(
             @RequestBody Hotels h){
