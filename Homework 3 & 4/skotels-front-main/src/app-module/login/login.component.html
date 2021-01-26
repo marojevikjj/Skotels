@@ -17,19 +17,8 @@
         Username or password is incorrect
       </div>
     </form>
-<!--      <div class="buttonDiv">-->
-<!--        <button type="button" class="log-in-button">SIGN IN</button>-->
-<!--      </div>-->
-
-
-<!--    <form [formGroup]="loginFG">-->
-<!--      <div class="login-type">-->
-<!--      <input type="radio" formControlName="user" name="type" >Log in as user-->
-<!--      <input type="radio" formControlName="admin" name="type">Log in as admin-->
-<!--      </div>-->
-<!--    </form>-->
     <div class="buttonDiv">
-      <button type="button" (click)="login()" class="log-in-button">SIGN IN</button>
+      <button type="button" (click)="login()" class="log-in-button" [ngClass]="{'disabled': !loginFG.valid}">SIGN IN</button>
     </div>
   </div>
   <div class="signup" (click)="goToSignUp()">

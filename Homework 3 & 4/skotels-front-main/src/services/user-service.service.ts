@@ -17,7 +17,7 @@ export class UserServiceService {
   public register(user: UsersModel): Observable<UsersModel> {
     return this.http.post<UsersModel>(`${this.usersUrl}/signup`, user);
   }
-  // login admin
+  // login
   login(user: UsersModel): Observable<UsersModel>{
     return this.http.post<UsersModel>(`${this.usersUrl}/login`, user);
   }

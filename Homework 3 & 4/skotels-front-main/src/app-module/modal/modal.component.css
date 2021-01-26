@@ -1,4 +1,3 @@
-
 .modal {
   background-color: rgb(253, 246, 238);
   border: 1px solid lightgray;
@@ -14,7 +13,6 @@
   display: flex;
   align-items: center;
   padding: 20px 20px;
-  /*background-image: linear-gradient(135deg,#001f58,black);*/
   background-image: linear-gradient(135deg,#c79288,#ddbeb8);
   justify-content: space-between;
   color: white;
