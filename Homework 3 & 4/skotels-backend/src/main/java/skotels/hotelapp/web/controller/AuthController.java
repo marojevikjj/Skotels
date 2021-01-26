@@ -3,45 +3,27 @@ package skotels.hotelapp.web.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import skotels.hotelapp.payload.MessageResponse;
-import skotels.hotelapp.repository.UserRepository;
 import skotels.hotelapp.model.User;
-import skotels.hotelapp.service.implementation.UserDetailsImpl;
 import skotels.hotelapp.service.implementation.UserDetailsServiceImpl;
 
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @RestController
 //@CrossOrigin(origins = "https://skotels.netlify.app")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AuthController {
-    //private final AuthenticationManager authenticationManager;
     private final UserDetailsServiceImpl userService;
-    //private final RoleRepository roleRepository;
     private final PasswordEncoder encoder;
-    //private final JwtUtils jwtUtils;
 
-    public AuthController(//AuthenticationManager authenticationManager,
-                          UserDetailsServiceImpl userService,
-                          //RoleRepository roleRepository,
-                          PasswordEncoder encoder
-                          /*JwtUtils jwtUtils*/) {
-        //this.authenticationManager = authenticationManager;
+    public AuthController(UserDetailsServiceImpl userService,
+                          PasswordEncoder encoder) {
         this.userService = userService;
-        //this.roleRepository = roleRepository;
         this.encoder = encoder;
-        //this.jwtUtils = jwtUtils;
     }
 
     @PostMapping("/api/login")
@@ -49,29 +31,14 @@ public class AuthController {
         String username = user.getUsername();
         String password = user.getPassword();
         String encodedPassword = this.userService.loadUserByUsername(username).getPassword();
+
         if (this.encoder.matches(password, encodedPassword)){
-            System.out.println("passwords match");
             User user1 = this.userService.findByUsernameAndPassword(username, encodedPassword)
                     .orElseThrow(() -> new RuntimeException("InvalidUserCredentials"));
             return ResponseEntity.ok().body(user1);
         }
-        return ResponseEntity.notFound().build();
 
-        //Authentication authentication = authenticationManager.authenticate(
-        //        new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-//
-        //SecurityContextHolder.getContext().setAuthentication(authentication);
-        //String jwt = jwtUtils.generateJwtToken(authentication);
-//
-        //UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        //List<String> roles = userDetails.getAuthorities().stream()
-        //        .map(item -> item.getAuthority())
-        //        .collect(Collectors.toList());
-
-        //return ResponseEntity.ok(new JwtResponse(jwt,
-        //        userDetails.getId(),
-        //        userDetails.getUsername(),
-        //        roles));
+        return ResponseEntity.ok().body(new MessageResponse("Invalid user credentials"));
     }
 
     @PostMapping("/api/signup")
@@ -95,7 +62,7 @@ public class AuthController {
 
     @PostMapping("/api/logout")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity logoutUser() {
+    public ResponseEntity<?> logoutUser() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(null);
         return ResponseEntity.ok(new MessageResponse("logout successful"));
