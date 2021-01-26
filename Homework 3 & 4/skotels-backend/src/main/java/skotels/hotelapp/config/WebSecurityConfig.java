@@ -9,66 +9,59 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import skotels.hotelapp.security.jwt.AuthEntryPointJwt;
-import skotels.hotelapp.security.jwt.AuthTokenFilter;
-import skotels.hotelapp.security.jwt.JwtUtils;
 import skotels.hotelapp.service.implementation.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+//@EnableGlobalMethodSecurity(
+//        // securedEnabled = true,
+//        // jsr250Enabled = true,
+//        prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsServiceImpl userDetailsService;
-    private final AuthEntryPointJwt unauthorizedHandler;
-    private final JwtUtils jwtUtils;
+    //private final AuthEntryPointJwt unauthorizedHandler;
+    //private final JwtUtils jwtUtils;
+    private final PasswordEncoder passwordEncoder;
 
     public WebSecurityConfig(UserDetailsServiceImpl userDetailsService,
-                             AuthEntryPointJwt unauthorizedHandler,
-                             JwtUtils jwtUtils) {
+                             //AuthEntryPointJwt unauthorizedHandler,
+                             //JwtUtils jwtUtils,
+                             PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
-        this.unauthorizedHandler = unauthorizedHandler;
-        this.jwtUtils = jwtUtils;
+        this.passwordEncoder = passwordEncoder;
+        //this.unauthorizedHandler = unauthorizedHandler;
+        //this.jwtUtils = jwtUtils;
     }
 
-    @Bean
-    public AuthTokenFilter authenticationJwtTokenFilter() {
-        return new AuthTokenFilter(jwtUtils, userDetailsService);
-    }
+    //@Bean
+    //public AuthTokenFilter authenticationJwtTokenFilter() {
+    //    return new AuthTokenFilter(this.jwtUtils, this.userDetailsService);
+    //}
 
-    @Override
-    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+    //@Override
+    //public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+    //    authenticationManagerBuilder.userDetailsService(this.userDetailsService).passwordEncoder(this.passwordEncoder);
+    //}
 
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    //@Bean
+    //@Override
+    //public AuthenticationManager authenticationManagerBean() throws Exception {
+    //    return super.authenticationManagerBean();
+    //}
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(unauthorizedHandler)
-                .and()
+                //.exceptionHandling()
+                //.authenticationEntryPoint(unauthorizedHandler)
+                //.and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated();
 
-        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        //http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }

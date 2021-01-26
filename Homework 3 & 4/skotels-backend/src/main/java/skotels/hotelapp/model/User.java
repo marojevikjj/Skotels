@@ -17,15 +17,15 @@ public class User {
     private String id;
     private String username;
     private String password;
-    @DBRef
-    private Set<Role> roles = new HashSet<>();
+    private String role;
 
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
 }

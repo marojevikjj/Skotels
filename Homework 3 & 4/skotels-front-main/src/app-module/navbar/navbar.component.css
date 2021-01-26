@@ -68,4 +68,12 @@
   transform: scale(1.2);
   text-decoration-line: underline;
 }
-
+@media(max-width: 740px) {
+  .logo{
+    display: none;
+  }
+  .right-text{
+    padding-left: 20px;
+    width: 100%;
+  }
+}

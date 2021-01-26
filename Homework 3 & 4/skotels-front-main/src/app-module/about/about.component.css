@@ -31,3 +31,11 @@
   font-weight: bold;
   margin-top: 50px;
 }
+@media(max-width: 740px) {
+  .logo-about{
+    display: none;
+  }
+  .right-content{
+    width: 100%;
+  }
+}
