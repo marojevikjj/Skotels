@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import skotels.hotelapp.model.User;
 import skotels.hotelapp.repository.UserRepository;
+import skotels.hotelapp.service.UserService;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService, UserService {
     private final UserRepository userRepository;
 
     public UserDetailsServiceImpl(UserRepository userRepository) {
@@ -25,12 +26,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return UserDetailsImpl.build(user);
     }
 
-    public Boolean existsByUsername(String username){
+    @Override
+    public Boolean existsByUsername(String username) {
         return this.userRepository.existsByUsername(username);
     }
 
-    public User save(User user){
+    @Override
+    public User save(User user) {
         return this.userRepository.save(user);
     }
+
 
 }
