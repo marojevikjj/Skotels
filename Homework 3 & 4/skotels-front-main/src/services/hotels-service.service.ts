@@ -10,7 +10,8 @@ import {HotelsModel} from '../models/hotels.model';
 export class HotelsServiceService {
   private hotelsUrl: string;
   constructor(private http: HttpClient) {
-    this.hotelsUrl = 'https://skotels2.herokuapp.com/api/hotels';
+    // this.hotelsUrl = 'https://skotels2.herokuapp.com/api/hotels';
+    this.hotelsUrl = 'http://localhost:8080/api/hotels';
   }
   public add(hotel: HotelsModel): Observable<HotelsModel> {
     return this.http.post<HotelsModel>(`${this.hotelsUrl}/save`, hotel);
