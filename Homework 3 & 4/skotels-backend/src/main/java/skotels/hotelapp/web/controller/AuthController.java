@@ -11,8 +11,6 @@ import skotels.hotelapp.payload.MessageResponse;
 import skotels.hotelapp.model.User;
 import skotels.hotelapp.service.implementation.UserDetailsServiceImpl;
 
-import javax.validation.Valid;
-
 @RestController
 //@CrossOrigin(origins = "https://skotels.netlify.app")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -27,7 +25,7 @@ public class AuthController {
     }
 
     @PostMapping("/api/login")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody User user) {
+    public ResponseEntity<?> authenticateUser(@RequestBody User user) {
         String username = user.getUsername();
         String password = user.getPassword();
         String encodedPassword = this.userService.loadUserByUsername(username).getPassword();
