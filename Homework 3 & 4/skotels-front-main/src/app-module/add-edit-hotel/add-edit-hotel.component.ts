@@ -18,7 +18,7 @@ export class AddEditHotelComponent implements OnInit {
       name: ['', [Validators.required]],
       email: ['', []],
       location: ['', [Validators.required]],
-      address: ['', [Validators.required]],
+      addrStreet: ['', [Validators.required]],
       internetAccess: ['', []],
       rooms: ['', []],
       phone: ['', []],

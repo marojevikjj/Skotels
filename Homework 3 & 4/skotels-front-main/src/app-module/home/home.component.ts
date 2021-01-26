@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+    console.log(this.user);
   }
   goToMap(): void {
     this.router.navigate(['./map']);
