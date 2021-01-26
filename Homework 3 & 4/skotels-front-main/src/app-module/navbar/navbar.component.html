@@ -5,6 +5,7 @@
     <div class="navbar-content" (click)="goToAbout()">About</div>
     <div class="navbar-content" (click)="goToMap()">Map</div>
     <div class="navbar-content" (click)="goToHotels()">Hotels</div>
-    <div class="navbar-content" (click)="goToLogin()">Log in</div>
+    <div class="navbar-content" (click)="goToLogin()" *ngIf="!loggedIn">Log in</div>
+    <div class="navbar-content" (click)="logOut()" *ngIf="loggedIn">Log out</div>
   </div>
 </div>

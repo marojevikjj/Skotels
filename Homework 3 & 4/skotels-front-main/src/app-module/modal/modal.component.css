@@ -28,4 +28,10 @@
 .material-icons:hover {
   cursor: pointer;
 }
-
+@media (max-width: 1050px) {
+  .modal{
+    width: 500px!important;
+    height: 500px!important;
+    left: 0!important;
+  }
+}

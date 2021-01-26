@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.userService.setUser(this.user);
       await this.router.navigate(['/home']);
+      this.userService.loggedIn.next(true);
     }
 
   }

@@ -30,7 +30,7 @@ export class HotelsComponent implements OnInit {
               private userService: UserServiceService,
               private dom: DomSanitizer) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.hotelService.findAll().subscribe(data => {
       this.hotels = data;
     });

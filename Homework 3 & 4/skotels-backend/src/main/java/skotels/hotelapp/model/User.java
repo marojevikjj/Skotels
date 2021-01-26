@@ -1,29 +1,26 @@
 package skotels.hotelapp.model;
 
 import lombok.Data;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
 @Data
-@Document
-public class Users {
+@Document(collection = "users")
+public class User {
 
     @Id
-    private ObjectId id;
+    private String id;
     private String username;
     private String password;
-    private boolean isAdmin;
+    private String role;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(String username, String password, boolean isAdmin) {
+    public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
-        this.isAdmin = isAdmin;
-        this.id = new ObjectId();
+        this.role = role;
     }
 
 }

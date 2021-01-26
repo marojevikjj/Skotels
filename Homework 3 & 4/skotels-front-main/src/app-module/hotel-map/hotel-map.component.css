@@ -5,3 +5,9 @@
   flex-direction: column;
 
 }
+@media (max-width: 1050px) {
+  iframe {
+    width: 300px!important;
+    height: 400px!important;
+  }
+}
