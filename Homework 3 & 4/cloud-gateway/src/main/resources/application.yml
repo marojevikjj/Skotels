@@ -11,25 +11,34 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/api/auth/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: USER-SERVICE
-                fallbackuri: forward:/userServiceFallBack
+          # filters:
+          #   - name: CircuitBreaker
+          #     args:
+          #       name: USER-SERVICE
+          #       fallbackuri: forward:/userServiceFallBack
         - id: HOTELS-SERVICE
           uri: lb://HOTEL-SERVICE
           predicates:
             - Path=/api/hotels/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: HOTEL-SERVICE
-                fallbackuri: forward:/hotelServiceFallBack
+          # filters:
+          #   - name: CircuitBreaker
+          #     args:
+          #       name: HOTEL-SERVICE
+          #       fallbackuri: forward:/hotelServiceFallBack
 
-hystrix:
-  command:
-    fallbackcmd:
-
+# hystrix:
+#   command:
+#     fallbackcmd:
+#       execution:
+#         isolation:
+#           thread:
+#             timeoutInMilliseconds: 4000
+#
+# management:
+#   endpoint:
+#     web:
+#       exposure:
+#         include: hystrix.stream
 
 eureka:
   client:
