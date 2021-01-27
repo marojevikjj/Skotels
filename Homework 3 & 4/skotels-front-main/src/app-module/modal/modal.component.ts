@@ -24,11 +24,6 @@ export class ModalComponent implements OnInit {
     this.visible = false;
 
   }
-
-  toggle(): void {
-    this.visible = !this.visible;
-  }
-
   ngOnInit(): void {
   }
 

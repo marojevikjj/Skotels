@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     this.user = await this.userService.login(loginDetails).toPromise();
     if (this.user == null) {
       this.error = true;
-      console.log('not logged in');
     } else {
       this.userService.setUser(this.user);
       await this.router.navigate(['/home']);

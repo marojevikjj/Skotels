@@ -15,10 +15,4 @@ export class HotelInfoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  closeModal(): void {
-    this.hideModal.emit();
-
-  }
-
 }
