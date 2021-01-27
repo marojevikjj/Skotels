@@ -1,4 +1,4 @@
-package com.skotels.userservice.service;
+package com.skotels.userservice.service.implementation;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skotels.userservice.model.User;
