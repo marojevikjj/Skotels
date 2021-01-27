@@ -6,6 +6,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import skotels.hotelapp.model.Hotels;
 import skotels.hotelapp.repository.HotelsRepository;
+import skotels.hotelapp.service.HotelsService;
 
 import java.util.List;
 
@@ -15,68 +16,55 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class HotelsController {
 
-    private final HotelsRepository hotelsRepository;
+    private final HotelsService hotelsService;
 
-    public HotelsController(HotelsRepository hotelsRepository) {
-        this.hotelsRepository = hotelsRepository;
+    public HotelsController(HotelsService hotelsService) {
+        this.hotelsService = hotelsService;
     }
 
+    // Return the hotels
     @GetMapping
     public List<Hotels> getAllHotels() {
-        return hotelsRepository.findAll();
+        return this.hotelsService.listAll();
     }
 
+    // Finds hotel by its id
     @GetMapping("/{id}")
     public Hotels getById(@RequestBody String _id){
-        if(hotelsRepository.findById(_id).isPresent()){
-            return hotelsRepository.findById(_id).get();
-        }
-        return null;
+        return this.hotelsService.findHotelById(_id).get();
     }
 
+    // Find hotels by given name
     @PostMapping("/searchHotels")
     public List<Hotels> findAllByName(@RequestParam String search){
-        return hotelsRepository.findAllByNameContains(search);
+        return this.hotelsService.findHotelsByName(search);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/edit/{id}")
-    public ResponseEntity<Hotels> editHotelPage(@PathVariable String id){
-        return this.hotelsRepository.findById(id).map(hotels ->
-                ResponseEntity.ok().body(hotels)).orElseGet(() ->
-                ResponseEntity.notFound().build());
-    }
 
+    // Save hotel in the db
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/save")
     public List<Hotels> saveHotel(@RequestBody Hotels hotel){
-        System.out.println("No");
-        this.hotelsRepository.save(hotel);
-        System.out.println("Yes");
-        return this.hotelsRepository.findAll();
+        return this.hotelsService.saveHotel(hotel);
     }
 
+    // Delete hotel from the db
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/delete")
     public List<Hotels> deleteHotel(
             @RequestBody Hotels h){
-        this.hotelsRepository.deleteByName(h.getName());
-        for (int i=0; i<this.hotelsRepository.findAll().size(); i++)
-            System.out.println(this.hotelsRepository.findAll().get(i));
-        return this.hotelsRepository.findAll();
+        return this.hotelsService.deleteHotelByName(h.getName());
     }
 
+    // Sort hotels by stars in descending order
     @GetMapping("/sortbystars")
     public List<Hotels> sortHotelsByStars(){
-        return this.hotelsRepository.findAll(Sort.by(Sort.Direction.DESC, "stars"));
+        return this.hotelsService.sortDescendingByStars();
     }
-    @GetMapping("/sortbyprice")
-    public List<Hotels> sortHotelsByPrice(){
-        return this.hotelsRepository.findAll(Sort.by(Sort.Direction.ASC, "price"));
 
-    }
+    // Sort hotels - alphabetic order
     @GetMapping("/sortalphabetic")
-    public List<Hotels> sortHotelsAlphabetic(@RequestBody String sortBy) {
-        return this.hotelsRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
+    public List<Hotels> sortHotelsAlphabetic() {
+        return this.hotelsService.sortAscendingAlphabetic();
     }
 }
