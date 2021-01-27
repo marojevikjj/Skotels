@@ -4,7 +4,7 @@
   <div class="search"><input type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
   <div class="sort"><button (click)="sortByStars()">Sort by stars</button></div>
   <div class="sort"><button (click)="sortAlphabetic()">Sort by name</button></div>
-  <div class="sort" *ngIf="user!=null"><button *ngIf="user.role==='ROLE_ADMIN'" (click)="add_hotel()">Add hotel</button></div>
+  <div class="sort" *ngIf="user!=null"><button *ngIf="user.role==='ROLE_ADMIN'" (click)="addHotel()">Add hotel</button></div>
   <div class="hotel-list">
     <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index">
       <div class="hotel-name">{{h.name}}
