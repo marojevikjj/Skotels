@@ -2,8 +2,7 @@ package com.skotels.userservice.controller;
 
 import com.skotels.userservice.model.User;
 import com.skotels.userservice.payload.MessageResponse;
-import com.skotels.userservice.service.UserDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.skotels.userservice.service.implementation.UserDetailsServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContext;
@@ -30,7 +29,7 @@ public class AuthController {
         this.encoder = encoder;
     }
 
-    @PostMapping("/api/login")
+    @PostMapping("/api/auth/login")
     public ResponseEntity<?> authenticateUser(@RequestBody User user) {
         String username = user.getUsername();
         String password = user.getPassword();
@@ -45,7 +44,7 @@ public class AuthController {
         return ResponseEntity.ok().body(new MessageResponse("Invalid user credentials"));
     }
 
-    @PostMapping("/api/signup")
+    @PostMapping("/api/auth/signup")
     public ResponseEntity<?> registerUser(@RequestBody User newUser) {
         if (this.userService.existsByUsername(newUser.getUsername())) {
             return ResponseEntity
@@ -64,7 +63,7 @@ public class AuthController {
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 
-    @PostMapping("/api/logout")
+    @PostMapping("/api/auth/logout")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<?> logoutUser() {
         SecurityContext securityContext = SecurityContextHolder.getContext();

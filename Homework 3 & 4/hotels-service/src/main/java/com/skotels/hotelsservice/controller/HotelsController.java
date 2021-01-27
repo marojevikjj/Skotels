@@ -1,7 +1,7 @@
 package com.skotels.hotelsservice.controller;
+import com.skotels.hotelsservice.service.HotelsService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import com.skotels.hotelsservice.entity.Hotels;
-import com.skotels.hotelsservice.service.HotelsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class HotelsController {
     }
 
     // Return the hotels
-    @GetMapping
+    @GetMapping("/all")
     public List<Hotels> getAllHotels() {
         return this.hotelsService.listAll();
     }
