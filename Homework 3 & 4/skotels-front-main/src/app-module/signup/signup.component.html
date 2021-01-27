@@ -9,13 +9,13 @@
 <!--          <input type="text" placeholder="Enter your email" formControlName="email" required class="username-input">-->
 <!--        </div>-->
         <div class="field">
-          <input type="text" placeholder="Enter username" formControlName="username" required class="username-input" minlength="">
+          <input type="text" placeholder="Enter username" formControlName="username" required class="username-input">
         </div>
         <div class="field">
-          <input type="password" placeholder="Enter password" formControlName="password" required class="password-input" minlength="5">
+          <input type="password" placeholder="Enter password" formControlName="password" required class="password-input">
         </div>
         <div class="field">
-          <input type="password" placeholder="Confirm password" formControlName="repeatPassword" required class="username-input" minlength="5">
+          <input type="password" placeholder="Confirm password" formControlName="repeatPassword" required class="username-input">
         </div>
           <div class="invalid-feedback" *ngIf="signUpFG.errors?.mismatch && (signUpFG.controls['repeatPassword'].dirty || signUpFG.controls['repeatPassword'].touched)">
               Passwords don't match.
