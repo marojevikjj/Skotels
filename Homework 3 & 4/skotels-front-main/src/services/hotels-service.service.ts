@@ -11,13 +11,13 @@ export class HotelsServiceService {
   private hotelsUrl: string;
   constructor(private http: HttpClient) {
     // this.hotelsUrl = 'https://skotels2.herokuapp.com/api/hotels';
-    this.hotelsUrl = 'http://localhost:8080/api/hotels';
+    this.hotelsUrl = 'http://localhost:9191/api/hotels';
   }
   public add(hotel: HotelsModel): Observable<HotelsModel> {
     return this.http.post<HotelsModel>(`${this.hotelsUrl}/save`, hotel);
   }
   public findAll(): Observable<HotelsModel[]> {
-    return this.http.get<HotelsModel[]>(this.hotelsUrl);
+    return this.http.get<HotelsModel[]>(`${this.hotelsUrl}/all`);
   }
   // delete
   deleteHotel(hotel: HotelsModel): Observable<HotelsModel[]> {

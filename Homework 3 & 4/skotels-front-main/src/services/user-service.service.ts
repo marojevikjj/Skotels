@@ -12,7 +12,7 @@ export class UserServiceService {
    loggedIn = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) {
     // this.usersUrl = 'https://skotels2.herokuapp.com/api';
-    this.usersUrl = 'http://localhost:8080/api';
+    this.usersUrl = 'http://localhost:9191/api/auth';
   }
   public register(user: UsersModel): Observable<UsersModel> {
     return this.http.post<UsersModel>(`${this.usersUrl}/signup`, user);
