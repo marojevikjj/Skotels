@@ -9,4 +9,5 @@ spring:
       server:
         git:
           uri: https://github.com/robert-ilievski/skotels-config-server
+          # uri: https://github.com/marojevikjj/Skotels
           clone-on-start: true
