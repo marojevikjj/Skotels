@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/hotels")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class HotelsController {
 
     private final HotelsService hotelsService;
