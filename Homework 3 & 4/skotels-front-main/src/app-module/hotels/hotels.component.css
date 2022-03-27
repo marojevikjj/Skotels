@@ -35,6 +35,10 @@ button {
 button:hover {
   cursor: pointer;
 }
+.box{
+  margin-right:auto;
+  margin-left:auto;
+}
 .hotel-name {
   padding: 20px;
   font-size: 24px;
@@ -93,7 +97,6 @@ a {
   display: flex;
   justify-content: flex-end;
   padding-top: 30px;
-  padding-right: 30px;
 }
 input {
   width: 300px;
