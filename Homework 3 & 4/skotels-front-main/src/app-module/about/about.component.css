@@ -1,15 +1,25 @@
 .about-container{
   height: 100%;
-  display: flex;
-  flex-direction: row;
   top:200px;
+  text-align: center;
 }
-.logo-about {
-  background-image: url("../../assets/logo.PNG");
-  background-size: cover;
-  width: 60%;
+.pictures {
+  width: 100%;
   height: 100%;
-  left: 0;
+}
+.image-grid{
+  box-sizing: border-box;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 300px;
+  gap: 5px;
+}
+.image-grid-col-2{
+  grid-column: span 2;
+}
+.image-grid-row-2{
+  grid-row: span 2;
 }
 .title {
   margin-bottom: 20px;
@@ -18,18 +28,25 @@
   font-weight: bold;
 }
 .right-content {
-  width: 40%;
-  margin-right: 65px;
-  margin-left: 65px;
   margin-top: 110px;
+  margin-bottom: 30px;
 }
-
 .description {
   font-size: 22px;
 }
 .bold {
   font-weight: bold;
   margin-top: 50px;
+}
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding-bottom: 24px;
+  padding-top: 24px;
 }
 @media(max-width: 740px) {
   .logo-about{
