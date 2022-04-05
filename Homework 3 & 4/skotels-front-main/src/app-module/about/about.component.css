@@ -2,6 +2,7 @@
   height: 100%;
   top:200px;
   text-align: center;
+  overflow-y: scroll;
 }
 .pictures {
   width: 100%;
