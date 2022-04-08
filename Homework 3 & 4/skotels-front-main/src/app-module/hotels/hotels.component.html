@@ -4,8 +4,6 @@
   <div class="box">
     <div class="search"><input type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
   </div>
-  <div class="sort"><button (click)="sortByStars()">Sort by stars</button></div>
-  <div class="sort"><button (click)="sortAlphabetic()">Sort by name</button></div>
   <div class="sort" *ngIf="user!=null"><button *ngIf="user.role==='ROLE_ADMIN'" (click)="addHotel()">Add hotel</button></div>
   <div class="hotel-list">
     <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index">
@@ -25,7 +23,13 @@
     </div>
   </div>
 </div>
-
+<div class="dropdown">
+  <button class="dropdownbtn" >Select sort type</button>
+  <div class="dropdown-content">
+    <div><button class="dropdown-content-btn" (click)="sortByStars()">Sort by stars</button></div>
+    <div><button class="dropdown-content-btn" (click)="sortAlphabetic()">Sort by name</button></div>
+  </div>
+</div>
 <app-modal #hotelInfo [modalTitle]="'Hotel information'" [height]="500" [width]="900">
   <app-hotel-info [hotel]="currentHotel"  (hideModal)="closeModal()"></app-hotel-info>
 </app-modal>

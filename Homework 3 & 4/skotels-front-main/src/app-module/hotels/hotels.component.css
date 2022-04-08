@@ -144,4 +144,38 @@ input {
   background-color: lightgray;
   transition: 0.4s;
 }
+.dropdown {
+  display: block;
+  float: right;
+  position: relative;
+  margin-right: 30px;
+}
+.dropdown-content {
+  display: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #E5E7E9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdownbtn{
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  border: none;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+}
+.dropdown-content-btn{
+  color: white;
+  border: none;
+  background-color: #5D6D7E ;
+  border-radius: 15px;
+  width: 140px;
+  height: 35px;
+  font-size: 13px;
+}
 
