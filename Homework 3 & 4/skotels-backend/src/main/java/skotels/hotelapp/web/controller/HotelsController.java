@@ -1,12 +1,14 @@
 package skotels.hotelapp.web.controller;
 
-import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import skotels.hotelapp.model.Comment;
 import skotels.hotelapp.model.Hotels;
-import skotels.hotelapp.repository.HotelsRepository;
+import skotels.hotelapp.model.User;
+import skotels.hotelapp.service.CommentService;
 import skotels.hotelapp.service.HotelsService;
+import skotels.hotelapp.service.implementation.CommentServiceImpl;
+import skotels.hotelapp.service.implementation.HotelsServiceImpl;
 
 import java.util.List;
 
@@ -17,9 +19,11 @@ import java.util.List;
 public class HotelsController {
 
     private final HotelsService hotelsService;
+    private final CommentService commentService;
 
-    public HotelsController(HotelsService hotelsService) {
+    public HotelsController(HotelsServiceImpl hotelsService, CommentServiceImpl commentService) {
         this.hotelsService = hotelsService;
+        this.commentService = commentService;
     }
 
     // Return the hotels
@@ -40,7 +44,6 @@ public class HotelsController {
         return this.hotelsService.findHotelsByName(search);
     }
 
-
     // Save hotel in the db
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/save")
@@ -53,6 +56,7 @@ public class HotelsController {
     @PostMapping("/delete")
     public List<Hotels> deleteHotel(
             @RequestBody Hotels h){
+
         return this.hotelsService.deleteHotelByName(h.getName());
     }
 
@@ -66,5 +70,20 @@ public class HotelsController {
     @GetMapping("/sortalphabetic")
     public List<Hotels> sortHotelsAlphabetic() {
         return this.hotelsService.sortAscendingAlphabetic();
+    }
+
+    @PostMapping("/addNewComment")
+    public List<Comment> writeComment(@RequestBody Hotels hotel, @RequestBody User user, @RequestParam String comment) {
+        return this.commentService.addNewComment(hotel, user, comment);
+    }
+
+    @PostMapping("/deleteComment")
+    public List<Comment> deleteComment(@RequestParam String id) {
+        return this.commentService.deleteComment(id);
+    }
+
+    @GetMapping("/hotelComments")
+    public List<Comment> getHotelComments(@RequestParam String hotelId) {
+        return this.commentService.getAllHotelComments(hotelId);
     }
 }

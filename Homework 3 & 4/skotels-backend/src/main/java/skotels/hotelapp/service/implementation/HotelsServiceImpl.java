@@ -3,6 +3,7 @@ package skotels.hotelapp.service.implementation;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import skotels.hotelapp.model.Hotels;
+import skotels.hotelapp.repository.CommentRepository;
 import skotels.hotelapp.repository.HotelsRepository;
 import skotels.hotelapp.service.HotelsService;
 
@@ -13,9 +14,11 @@ import java.util.Optional;
 public class HotelsServiceImpl implements HotelsService {
 
     private final HotelsRepository hotelsRepository;
+    private final CommentRepository commentRepository;
 
-    public HotelsServiceImpl(HotelsRepository hotelsRepository) {
+    public HotelsServiceImpl(HotelsRepository hotelsRepository, CommentRepository commentRepository) {
         this.hotelsRepository = hotelsRepository;
+        this.commentRepository = commentRepository;
     }
 
     // Searching hotel by given id
@@ -49,6 +52,7 @@ public class HotelsServiceImpl implements HotelsService {
     // Deleting hotel by given name
     @Override
     public List<Hotels> deleteHotelByName(String name) {
+        this.commentRepository.deleteCommentsByHotel_Name(name);
         this.hotelsRepository.deleteByName(name);
         return listAll();
     }
