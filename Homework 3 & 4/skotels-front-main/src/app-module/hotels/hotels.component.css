@@ -169,13 +169,18 @@ input {
   height: 50px;
   font-size: 15px;
 }
+.dropdownbtn:hover {
+  background-color: #28bdd6;
+}
 .dropdown-content-btn{
   color: white;
   border: none;
-  background-color: #5D6D7E ;
+  background-color: #28bdd6 ;
   border-radius: 15px;
   width: 140px;
   height: 35px;
   font-size: 13px;
 }
-
+.dropdown-content-btn:hover {
+  background-color: black ;
+}
