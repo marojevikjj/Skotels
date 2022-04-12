@@ -184,3 +184,27 @@ input {
 .dropdown-content-btn:hover {
   background-color: black ;
 }
+.shine-box {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  justify-content: center;
+  font-family: Hack, sans-serif;
+  background: linear-gradient(90deg, #000, #28bdd6, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 90%;
+  animation: shine 5s linear infinite;
+  position: relative;
+}
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+

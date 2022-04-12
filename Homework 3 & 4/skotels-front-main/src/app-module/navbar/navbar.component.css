@@ -27,6 +27,9 @@
   font-weight: bold;
   font-size: 20px;
 }
+.navbar-content{
+  color: #28bdd6;
+}
 .navbar-content:hover {
   cursor: pointer;
   transform: scale(1.2);
