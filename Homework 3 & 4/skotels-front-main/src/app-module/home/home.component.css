@@ -23,19 +23,26 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-top: 60px;
+  /*border: 2px solid lightgray;*/
+  /*background-color: whitesmoke;*/
+  /*border-radius: 20px;*/
+  /*padding: 10px 20px;*/
 
 }
 .title {
-  color: white;
+  /*color: white;*/
   font-size: 70px;
   font-weight: bold;
   letter-spacing: 1px;
+  color: white;
 }
 .text {
   font-size: 30px;
   letter-spacing: 1px;
   margin-left: 10px;
-  color: #fae2d7;
+  color: white;
+  font-weight: bold;
 }
 
 button {
@@ -75,4 +82,45 @@ button:hover {
   margin: 15px;
   padding: 15px;
   font-size: 1.4rem;
+}
+
+.bold {
+  font-weight: bold;
+  margin-top: 50px;
+}
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding-bottom: 24px;
+  padding-top: 24px;
+}
+.second-title {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  justify-content: center;
+  font-family: Hack, sans-serif;
+  background: linear-gradient(90deg, #000, #28bdd6, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 90%;
+  animation: shine 5s linear infinite;
+  position: relative;
+
+
+}
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
 }

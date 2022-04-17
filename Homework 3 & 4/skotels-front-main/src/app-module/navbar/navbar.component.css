@@ -29,6 +29,7 @@
 }
 .navbar-content{
   color: #28bdd6;
+  /*color: white;*/
 }
 .navbar-content:hover {
   cursor: pointer;
