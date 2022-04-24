@@ -98,6 +98,21 @@ a {
   justify-content: flex-end;
   padding-top: 30px;
 }
+.serach-input{
+  border-radius: 15px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTfJmvn1AqoeGJDrYgGNo1Hi8kkOzAvihQsA&usqp=CAU);
+  background-size: 45px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 40px;
+  background-color: #fff;
+  border: 2px solid #28bdd6;
+  box-shadow: none;
+  font-size: 18px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  -webkit-appearance: none;
+}
 input {
   width: 300px;
   height: 30px;
