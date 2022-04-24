@@ -2,7 +2,7 @@
 <div class="hotels-container">
   <h2 class="shine-box">Choose one of the best hotels.</h2>
   <div class="box">
-    <div class="search"><input type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
+    <div class="search"><input class="serach-input" type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
   </div>
   <div class="sort" *ngIf="user!=null"><button *ngIf="user.role==='ROLE_ADMIN'" (click)="addHotel()">Add hotel</button></div>
   <div class="hotel-list">
