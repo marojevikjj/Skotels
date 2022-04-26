@@ -1,28 +1,37 @@
 <div class="login-container">
-<div class="wrapper">
-  <div class="header">
-    <div>LOG IN</div>
-  </div>
-  <div class="login">
-    <form [formGroup]="loginFG">
-      <div class="field">
-        <input type="text" placeholder="Username" formControlName="username" required class="username-input">
-      </div>
-      <div class="field">
-        <input type="password" placeholder="Password" formControlName="password" required class="password-input">
-      </div>
-      <div class="message-alert" *ngIf="error">
-        Username or password is incorrect
-      </div>
-    </form>
-    <div class="buttonDiv">
-      <button type="button" (click)="login()" class="log-in-button" [ngClass]="{'disabled': !loginFG.valid}">SIGN IN</button>
+    <div class="row login-content">
+        <div class="col-7 login">
+            <div class="login-credentials">
+                <div class="header my-5">
+                    <div>LOG IN</div>
+                </div>
+                <div class="col-6 credentials my-5">
+                    <form [formGroup]="loginFG">
+                        <div class="field">
+                            <input type="text" placeholder="Username" formControlName="username" required
+                                   class="username-input">
+                        </div>
+                        <div class="field">
+                            <input type="password" placeholder="Password" formControlName="password" required
+                                   class="password-input">
+                        </div>
+                        <div class="message-alert" *ngIf="error">
+                            Username or password is incorrect
+                        </div>
+                    </form>
+                </div>
+                <div class="buttonDiv my-5">
+                    <button type="button" (click)="login()" class="log-in-button"
+                            [ngClass]="{'disabled': !loginFG.valid}">Log In
+                    </button>
+                </div>
+                <div class="signup my-5" (click)="goToSignUp()">
+                    <p>
+                        <a>Don't have an account? Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 login-bg-image"></div>
     </div>
-  </div>
-  <div class="signup" (click)="goToSignUp()">
-    <p>
-      <a>Don't have an account? Sign up</a>
-    </p>
-  </div>
-</div>
 </div>
