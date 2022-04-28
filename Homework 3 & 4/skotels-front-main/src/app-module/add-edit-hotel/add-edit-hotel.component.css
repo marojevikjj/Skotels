@@ -1,44 +1,61 @@
 .container {
-  margin-left: 240px;
   height: 100%;
   padding: 20px;
   margin-top: 70px;
+  text-align: center;
 }
-
-h2 {
-  font-size: 26px;
+.shine-box {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  justify-content: center;
+  font-family: Hack, sans-serif;
+  background: linear-gradient(90deg, #000, #28bdd6, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 90%;
+  animation: shine 5s linear infinite;
+  position: relative;
+}
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
 }
 .material-icons{
   vertical-align: middle;
   font-size: 20px;
 }
-
-.wrapper {
+.wrapper{
+  justify-content: center;
+  text-align: left;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+}
+.inline{
+  display: inline;
 }
 .inputs {
+  display: grid;
   padding-top: 10px;
   padding-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 70%;
   align-items: center;
 }
-label {
-  min-width: 200px;
-  height: 100%;
-  box-sizing: border-box;
-}
 input {
-  min-width: 256px;
   padding: 10px 20px;
   font-size: 18px;
+  border-radius: 15px;
+  border: none;
+  border-bottom: 2px solid #28bdd6;
+  font-family: 'Courier New', monospace;
+  background: #f9ffff;
 }
 input:hover{
-  box-shadow: 0 1px 20px #FFCD53;
+  box-shadow: 0 1px 20px #28bdd6;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -47,43 +64,36 @@ input:hover{
   padding: 10px 20px;
   min-width: 300px;
 }
-
 .buttons{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 button{
   margin-left: 5px;
   margin-right: 5px;
 }
 .save{
-  cursor: pointer;
-  color: black;
-  font-size: 12px;
+  color: white;
+  background-color: #28bdd6;
+  border-radius: 15px;
+  border: none;
   width: 150px;
-  border: 1px solid lightgray;
-  padding: 10px 0;
-  margin-top: 15px;
-  border-radius: 5px;
-  background-color: whitesmoke;
-  margin-bottom: 15px;
+  height: 50px;
+  font-size: 15px;
 }
 .save:hover , .discard:hover{
-  background-color: lightgray;
+  background-color: black;
 }
 .discard{
-  cursor: pointer;
-  color: black;
-  font-size: 12px;
+  color: white;
+  background-color: #0B8397;
+  border-radius: 15px;
+  border: none;
   width: 150px;
-  border: 1px solid lightgray;
-  padding: 10px 0;
-  margin-top: 15px;
-  border-radius: 5px;
-  background-color: lightgray;
-  margin-bottom: 15px;
+  height: 50px;
+  font-size: 15px;
 }
-
 .disabled {
   background-color: lightgray!important;
   color: grey!important;

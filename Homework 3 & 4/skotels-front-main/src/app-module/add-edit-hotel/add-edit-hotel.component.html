@@ -1,73 +1,44 @@
 <div class="container">
-  <h2>Add hotel</h2>
+  <h2 class="shine-box">Add hotel</h2>
   <div class="wrapper">
     <form [formGroup]="hotelsFG">
       <div class="inputs">
-        <label> Name  <span class="asterics">*</span></label>
-        <input type="text" formControlName='name'>
+        <span class="inline">
+          <span class="asterics">*</span>
+          <input type="text" placeholder="Name" formControlName='name'>
+          <input type="text" placeholder="Email" formControlName="email">
+        </span>
       </div>
       <div class="inputs">
-        <label>
-          Email
-        </label>
-        <input type="text" formControlName="email">
+        <span class="asterics">*</span>
+        <input type="text" placeholder="Location - link from Google Maps" formControlName="location">
       </div>
       <div class="inputs">
-        <label>
-          Location - link from Google Maps <span class="asterics">*</span>
-        </label>
-        <input type="text" formControlName="location">
+        <span class="asterics">*</span>
+        <input type="text" placeholder="Address" formControlName="addrStreet">
       </div>
       <div class="inputs">
-        <label>
-          Address <span class="asterics">*</span>
-        </label>
-        <input type="text" formControlName="addrStreet">
+        <span class="inline">
+          <input type="text" placeholder="Latitude" formControlName="latitude">
+          <input type="text" placeholder="Longitude" formControlName="longitude">
+        </span>
       </div>
       <div class="inputs">
-        <label>
-          Internet access
-        </label>
-        <input type="text" formControlName="internetAccess">
+        <input type="text" placeholder="Website" formControlName="website">
       </div>
       <div class="inputs">
-        <label>
-          Rooms
-        </label>
-        <input type="text" formControlName="rooms">
-      </div>
-      <div class="inputs">
-        <label>
-          Phone
-        </label>
-        <input type="text" formControlName="phone">
-
-      </div>
-      <div class="inputs">
-        <label>
-          Website
-        </label>
-        <input type="text" formControlName="website">
+        <span class="inline">
+          <input type="text" placeholder="Rooms" formControlName="rooms">
+          <input type="text" placeholder="Phone" formControlName="phone">
+        </span>
       </div>
 
       <div class="inputs">
-        <label>
-          Stars <span class="asterics">*</span>
-        </label>
-        <input type="text" formControlName="stars">
-      </div>
-
-      <div class="inputs">
-        <label>
-          Latitude
-        </label>
-        <input type="text" formControlName="latitude">
+        <input type="text" placeholder="Internet Access" formControlName="internetAccess">
       </div>
       <div class="inputs">
-        <label>
-          Longitude
-        </label>
-        <input type="text" formControlName="longitude">
+        <span class="asterics">*</span>
+        <input type="text" placeholder="Stars" formControlName="stars">
       </div>
 
     </form>
