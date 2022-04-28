@@ -119,6 +119,7 @@ input {
 }
 .sort{
   margin-left:180px;
+
 }
 .modal-container {
   display: flex;
@@ -187,6 +188,18 @@ input {
 .dropdownbtn:hover {
   background-color: #28bdd6;
 }
+.add-btn{
+  color: white;
+  background-color: #28bdd6;
+  border-radius: 15px;
+  border: none;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+}
+.add-btn:hover{
+  background-color: #187180;
+}
 .dropdown-content-btn{
   color: white;
   border: none;
@@ -221,5 +234,3 @@ input {
     background-position-x: 500%;
   }
 }
-
-
