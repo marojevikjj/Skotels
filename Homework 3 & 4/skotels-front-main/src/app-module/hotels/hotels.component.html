@@ -1,26 +1,7 @@
-
 <div class="hotels-container">
   <h2 class="shine-box">Choose one of the best hotels.</h2>
   <div class="box">
     <div class="search"><input class="serach-input" type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
-  </div>
-  <div class="sort" *ngIf="user!=null"><button *ngIf="user.role==='ROLE_ADMIN'" (click)="addHotel()">Add hotel</button></div>
-  <div class="hotel-list">
-    <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index">
-      <div class="hotel-name">{{h.name}}
-        <span *ngIf="user!=null"><span *ngIf="user.role==='ROLE_ADMIN'" class="material-icons delete" (click)="hotelIndex=i;confirmationModal.show()">delete</span></span>
-      </div>
-        <div class="map">
-          <div class="map-image">
-            <div class="darken-image"></div>
-          <div class="map-image-text" (click)="showMap(h)"> Show on map</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <button><a href="https://www.booking.com/">Book now</a></button>
-          <button (click)="showInfo(h)">Show more info</button>
-      </div>
-    </div>
   </div>
 </div>
 <div class="dropdown">
@@ -30,6 +11,26 @@
     <div><button class="dropdown-content-btn" (click)="sortAlphabetic()">Sort by name</button></div>
   </div>
 </div>
+<div class="sort" *ngIf="user!=null"><button class="add-btn" *ngIf="user.role==='ROLE_ADMIN'" (click)="addHotel()">Add hotel</button></div>
+<div class="hotel-list">
+  <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index">
+    <div class="hotel-name">{{h.name}}
+      <span *ngIf="user!=null"><span *ngIf="user.role==='ROLE_ADMIN'" class="material-icons delete" (click)="hotelIndex=i;confirmationModal.show()">delete</span></span>
+    </div>
+      <div class="map">
+        <div class="map-image">
+          <div class="darken-image"></div>
+        <div class="map-image-text" (click)="showMap(h)"> Show on map</div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button><a href="https://www.booking.com/">Book now</a></button>
+        <button (click)="showInfo(h)">Show more info</button>
+    </div>
+  </div>
+</div>
+
+
 <app-modal #hotelInfo [modalTitle]="'Hotel information'" [height]="500" [width]="900">
   <app-hotel-info [hotel]="currentHotel"  (hideModal)="closeModal()"></app-hotel-info>
 </app-modal>
