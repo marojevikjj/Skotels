@@ -1,4 +1,4 @@
-.container {
+.nav-container {
   background-color: black;
   display: flex;
   justify-content: space-between;
@@ -10,7 +10,7 @@
   left: 0;
 }
 .logo {
-  background-image: url("../../assets/logo.PNG");
+  background-image: url("../../assets/skotels-redesign-logo.png");
   background-size: cover;
   margin-left: 18px;
   height: 80px;
@@ -26,6 +26,10 @@
   padding-right: 50px;
   font-weight: bold;
   font-size: 20px;
+}
+.navbar-content{
+  color: #28bdd6;
+  /*color: white;*/
 }
 .navbar-content:hover {
   cursor: pointer;

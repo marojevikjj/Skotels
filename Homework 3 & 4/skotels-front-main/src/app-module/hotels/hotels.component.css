@@ -98,12 +98,28 @@ a {
   justify-content: flex-end;
   padding-top: 30px;
 }
+.serach-input{
+  border-radius: 15px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTfJmvn1AqoeGJDrYgGNo1Hi8kkOzAvihQsA&usqp=CAU);
+  background-size: 45px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 40px;
+  background-color: #fff;
+  border: 2px solid #28bdd6;
+  box-shadow: none;
+  font-size: 18px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  -webkit-appearance: none;
+}
 input {
   width: 300px;
   height: 30px;
 }
 .sort{
   margin-left:180px;
+
 }
 .modal-container {
   display: flex;
@@ -144,4 +160,77 @@ input {
   background-color: lightgray;
   transition: 0.4s;
 }
-
+.dropdown {
+  display: block;
+  float: right;
+  position: relative;
+  margin-right: 30px;
+}
+.dropdown-content {
+  display: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #E5E7E9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdownbtn{
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  border: none;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+}
+.dropdownbtn:hover {
+  background-color: #28bdd6;
+}
+.add-btn{
+  color: white;
+  background-color: #28bdd6;
+  border-radius: 15px;
+  border: none;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+}
+.add-btn:hover{
+  background-color: #187180;
+}
+.dropdown-content-btn{
+  color: white;
+  border: none;
+  background-color: #28bdd6 ;
+  border-radius: 15px;
+  width: 140px;
+  height: 35px;
+  font-size: 13px;
+}
+.dropdown-content-btn:hover {
+  background-color: black ;
+}
+.shine-box {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  justify-content: center;
+  font-family: Hack, sans-serif;
+  background: linear-gradient(90deg, #000, #28bdd6, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 90%;
+  animation: shine 5s linear infinite;
+  position: relative;
+}
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}

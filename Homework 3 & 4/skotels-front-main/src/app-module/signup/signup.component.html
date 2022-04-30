@@ -1,27 +1,34 @@
 <div class="login-container">
-  <div class="wrapper">
-    <div class="header">
-      <div>SIGN UP</div>
-    </div>
-    <div class="login">
-      <form [formGroup]="signUpFG">
-        <div class="field">
-          <input type="text" placeholder="Enter username" formControlName="username" required class="username-input">
+  <div class="row login-content">
+    <div class="col-7 login">
+      <div class="login-credentials">
+        <div class="header my-5">
+          <div>SIGN UP</div>
         </div>
-        <div class="field">
-          <input type="password" placeholder="Enter password" formControlName="password" required class="password-input">
-        </div>
-        <div class="field">
-          <input type="password" placeholder="Confirm password" formControlName="repeatPassword" required class="username-input">
-        </div>
-          <div class="invalid-feedback" *ngIf="signUpFG.errors?.mismatch && (signUpFG.controls['repeatPassword'].dirty || signUpFG.controls['repeatPassword'].touched)">
+        <div class="col-6 credentials my-5">
+          <form [formGroup]="signUpFG">
+            <div class="field">
+              <input type="text" placeholder="Enter username" formControlName="username" required class="username-input">
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Enter password" formControlName="password" required class="password-input">
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Confirm password" formControlName="repeatPassword" required class="username-input">
+            </div>
+            <div class="invalid-feedback" *ngIf="signUpFG.errors?.mismatch && (signUpFG.controls['repeatPassword'].dirty || signUpFG.controls['repeatPassword'].touched)">
               Passwords don't match.
-          </div>
-      </form>
-      <div class="buttonDiv">
-        <button type="button" class="log-in-button" (click)="onSubmit()" [ngClass]="{'disabled': !signUpFG.valid}">SIGN UP</button>
+            </div>
+          </form>
+        </div>
+        <div class="buttonDiv my-5">
+          <button type="button" (click)="onSubmit()" class="log-in-button"
+                  [ngClass]="{'disabled': !signUpFG.valid}">SIGN UP
+          </button>
+        </div>
       </div>
     </div>
+    <div class="col-5 login-bg-image"></div>
   </div>
 </div>
 
