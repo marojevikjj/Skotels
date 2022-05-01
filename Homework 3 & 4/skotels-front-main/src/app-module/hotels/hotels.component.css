@@ -92,6 +92,8 @@ a {
 }
 .map:hover {
   cursor: pointer;
+  cursor: pointer;
+  transform: scale(1.1);
 }
 .search {
   display: flex;
@@ -119,7 +121,6 @@ input {
 }
 .sort{
   margin-left:180px;
-
 }
 .modal-container {
   display: flex;
@@ -188,17 +189,32 @@ input {
 .dropdownbtn:hover {
   background-color: #28bdd6;
 }
-.add-btn{
-  color: white;
-  background-color: #28bdd6;
+.hotelbtn{
+  color: black;
+  background-color: lightgray;
   border-radius: 15px;
   border: none;
-  width: 150px;
+  width: 130px;
   height: 50px;
-  font-size: 15px;
+  font-size: 12px;
+}
+.hotelbtn:hover {
+  background-color: #28bdd6;
+}
+.add-btn{
+  /*color: white;*/
+  /*background-color: #28bdd6;*/
+  /*border-radius: 15px;*/
+  /*border: none;*/
+  /*width: 150px;*/
+  /*height: 50px;*/
+  /*font-size: 15px;*/
+  margin-left:180px;
+  border-radius: 15px;
 }
 .add-btn:hover{
-  background-color: #187180;
+  color: #fff;
+  transform: translateY(5px);
 }
 .dropdown-content-btn{
   color: white;

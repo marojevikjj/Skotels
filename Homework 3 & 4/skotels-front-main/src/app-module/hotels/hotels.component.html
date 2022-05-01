@@ -1,11 +1,16 @@
 <div class="hotels-container">
-  <div class="title-container"> <div class="title">Hotels</div></div>
+  <h2 class="shine-box">Choose one of the best hotels.</h2>
   <div class="box">
-    <div class="search"><input type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
+    <div class="search"><input class="serach-input" type="text" placeholder="Find a hotel" name="search" [(ngModel)]="searchText" autocomplete="off" ></div>
   </div>
-  <div class="sort"><button (click)="sortByStars()">Sort by stars</button></div>
-  <div class="sort"><button (click)="sortAlphabetic()">Sort by name</button></div>
-  <div class="sort" *ngIf="user!=null"><button *ngIf="user!=null" (click)="addHotel()">Add hotel</button></div>
+  <div class="dropdown" style="margin-left: 200px">
+    <button class="dropdownbtn" >Select sort type</button>
+    <div class="dropdown-content">
+      <div><button class="dropdown-content-btn" (click)="sortByStars()">Sort by stars</button></div>
+      <div><button class="dropdown-content-btn" (click)="sortAlphabetic()">Sort by name</button></div>
+    </div>
+  </div>
+  <div class="add-btn" *ngIf="user!=null"><button *ngIf="user!=null" (click)="addHotel()">Add hotel</button></div>
   <div class="hotel-list">
     <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index">
       <div class="hotel-name">{{h.name}}
@@ -18,8 +23,8 @@
         </div>
       </div>
       <div class="buttons">
-        <button><a href="https://www.booking.com/">Book now</a></button>
-          <button (click)="showInfo(i)">Show more info</button>
+        <button class="hotelbtn" ><a href="https://www.booking.com/">Book now</a></button>
+          <button class="hotelbtn" (click)="showInfo(i)">Show more info</button>
       </div>
     </div>
   </div>
