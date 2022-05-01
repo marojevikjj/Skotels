@@ -24,6 +24,7 @@ export class HotelsComponent implements OnInit {
   user: any;
   currentHotelMap: any;
   location: any;
+  name: string;
 
   constructor(private hotelService: HotelsServiceService,
               private router: Router,
@@ -36,14 +37,19 @@ export class HotelsComponent implements OnInit {
     });
     this.user = this.userService.getUser();
   }
-  showInfo(hotel): void {
-    this.currentHotel = hotel;
-    this.hotelInfo.show();
+  showInfo(i): void {
+    this.currentHotelMap = this.hotels[i]._id;
+    this.location = this.currentHotelMap.location;
+    this.hotelIndex = this.currentHotelMap._id;
+    this.name = this.currentHotelMap.name;
+    console.log('index vo hotels ' + i);
+    console.log('hotel vo hotels ' + this.hotels[i]);
+    this.router.navigate(['./hotel-info/' + i]);
   }
   showMap(hotel): void {
     this.currentHotelMap = hotel;
     this.location = this.currentHotelMap.location;
-    console.log('location from hotels', this.location);
+    console.log('location from hotels', this.currentHotelMap.name);
     this.hotelMap.show();
   }
   closeModal(): void {

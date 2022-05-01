@@ -24,7 +24,7 @@ public class HotelsServiceImpl implements HotelsService {
         if(hotelsRepository.findById(id).isPresent()){
             return hotelsRepository.findById(id);
         }
-        return null;
+        return hotelsRepository.findById(id);
     }
 
     // Searching hotel by given name
@@ -64,4 +64,10 @@ public class HotelsServiceImpl implements HotelsService {
     public List<Hotels> sortAscendingAlphabetic() {
         return this.hotelsRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
+
+    @Override
+    public Optional<Hotels> findHotelByName(String name) {
+        return this.hotelsRepository.findByName(name);
+    }
+
 }

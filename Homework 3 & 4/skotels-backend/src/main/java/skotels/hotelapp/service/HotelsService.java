@@ -12,4 +12,5 @@ public interface HotelsService {
     List<Hotels> deleteHotelByName(String name);
     List<Hotels> sortDescendingByStars();
     List<Hotels> sortAscendingAlphabetic();
+    Optional<Hotels> findHotelByName(String name);
 }
