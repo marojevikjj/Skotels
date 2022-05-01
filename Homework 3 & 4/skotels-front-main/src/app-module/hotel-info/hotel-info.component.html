@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
   <div class="hotel-name"><div class="text">{{hotel?.name}}</div></div>
   <div class="hotel-image"><div class="img"></div></div>
@@ -14,6 +15,15 @@
         <div class="info-item">Internet access: {{hotel?.internetAccess}}</div>
         <div class="info-item">Rooms: {{hotel?.rooms}}</div>
     </div>
-
   </div>
+    <div class="starPosition">
+        <div *ngFor="let star of starList;">
+            <div style="float:left;" *ngIf="star<=hotel.stars">
+                <span class="fa-2x fa fa-star checked starSize"></span>
+            </div>
+            <div style="float:left;" *ngIf="star>hotel.stars">
+                <span class="fa-2x fa fa-star starSize"></span>
+            </div>
+        </div>
+    </div>
 </div>
