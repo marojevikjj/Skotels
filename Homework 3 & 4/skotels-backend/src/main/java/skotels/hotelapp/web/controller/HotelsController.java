@@ -8,7 +8,9 @@ import skotels.hotelapp.model.Hotels;
 import skotels.hotelapp.repository.HotelsRepository;
 import skotels.hotelapp.service.HotelsService;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/hotels")
@@ -30,8 +32,9 @@ public class HotelsController {
 
     // Finds hotel by its id
     @GetMapping("/{id}")
-    public Hotels getById(@RequestBody String _id){
-        return this.hotelsService.findHotelById(_id).get();
+    public Hotels getById(@PathVariable String id){
+        Optional<Hotels> h = this.hotelsService.findHotelById(id);
+        return this.hotelsService.findHotelById(id).get();
     }
 
     // Find hotels by given name
@@ -39,7 +42,6 @@ public class HotelsController {
     public List<Hotels> findAllByName(@RequestParam String search){
         return this.hotelsService.findHotelsByName(search);
     }
-
 
     // Save hotel in the db
     @PreAuthorize("hasRole('ROLE_ADMIN')")

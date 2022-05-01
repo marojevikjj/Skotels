@@ -44,6 +44,9 @@ const routes: Routes = [
   },
   {
     path: 'add-edit', component: AddEditHotelComponent
+  },
+  {
+    path: 'hotel-info/:i', component: HotelInfoComponent
   }
 ];
 
