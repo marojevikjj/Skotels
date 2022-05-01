@@ -1,9 +1,9 @@
 .container {
   padding:20px;
-  height: 870px;
+  height: 907px;
   display: flex;
   flex-direction: column;
-
+  background: linear-gradient(90deg, #000, #28bdd6, #000);
 }
 .hotel-name {
   display: flex;
@@ -19,30 +19,39 @@
   align-items: center;
 }
 .img {
+  margin-top: 40px;
   background-image: url("../../assets/hotel-description.jpeg");
   background-size: cover;
-  height: 190px;
-  width: 300px;
+  height: 300px;
+  width: 600px;
+  border-radius: 10px;
+
 }
 .other-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 10px;
 
 }
 .info-left {
-  display: flex;
-  flex-direction: column;
+  margin: 40px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: left;
   justify-content: space-between;
-  height: 140px;
-  width: 50%;
+  font-family: Hack, sans-serif;
+  color:white;
+
 }
 .info-right {
-  display: flex;
-  flex-direction: column;
+  margin: 40px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: left;
   justify-content: space-between;
-  height: 140px;
-  width: 30%;
+  font-family: Hack, sans-serif;
+  color: white;
 }
 
