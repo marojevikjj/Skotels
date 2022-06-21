@@ -52,9 +52,9 @@ export class HotelInfoComponent implements OnInit {
       console.log('hotel vo hotel info ' + this.hotels[hotelIndex]);
       this.totalStars = Number(this.hotel.stars);
     });
-    this.hotelService.getComments(this.hotel).subscribe(data => {
-      this.comments = data;
-    });
+    // this.hotelService.getComments(this.hotel).subscribe(data => {
+    //   this.comments = data;
+    // });
     this.commentGroup = this.fb.group({
       comment: ['', [Validators.required]],
     });

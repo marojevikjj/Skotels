@@ -22,9 +22,9 @@ export class HotelsServiceService {
   public findAll(): Observable<HotelsModel[]> {
     return this.http.get<HotelsModel[]>(`${this.hotelsUrl}`);
   }
-  public getComments(hotel: HotelsModel): Observable<HotelsComment[]>{
-    return this.http.get<HotelsComment[]>(`${this.hotelsUrl}/getComments`, hotel);
-  }
+  // public getComments(hotel: HotelsModel): Observable<HotelsComment[]>{
+  //   return this.http.get<HotelsComment[]>(`${this.hotelsUrl}/getComments`, hotel);
+  // }
   // delete
   deleteHotel(hotel: HotelsModel): Observable<HotelsModel[]> {
     return this.http.post<HotelsModel[]>(`${this.hotelsUrl}/delete`, hotel);
