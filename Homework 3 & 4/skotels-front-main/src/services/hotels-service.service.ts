@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {UsersModel} from '../models/users.model';
 import {Observable} from 'rxjs';
 import {HotelsModel} from '../models/hotels.model';
+import {HotelsComment} from "../models/comment.model";
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,14 @@ export class HotelsServiceService {
   public add(hotel: HotelsModel): Observable<HotelsModel> {
     return this.http.post<HotelsModel>(`${this.hotelsUrl}/save`, hotel);
   }
+  public addNewComment(comment: HotelsComment): Observable<HotelsModel> {
+    return this.http.post<HotelsModel>(`${this.hotelsUrl}/saveComment`, comment);
+  }
   public findAll(): Observable<HotelsModel[]> {
     return this.http.get<HotelsModel[]>(`${this.hotelsUrl}`);
+  }
+  public getComments(hotel: HotelsModel): Observable<HotelsComment[]>{
+    return this.http.get<HotelsComment[]>(`${this.hotelsUrl}/getComments`, hotel);
   }
   // delete
   deleteHotel(hotel: HotelsModel): Observable<HotelsModel[]> {

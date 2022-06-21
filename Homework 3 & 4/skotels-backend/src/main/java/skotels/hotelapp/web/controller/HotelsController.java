@@ -1,16 +1,18 @@
 package skotels.hotelapp.web.controller;
 
-import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import skotels.hotelapp.DTO.HotelsCommentDTO;
+import skotels.hotelapp.model.Comment;
 import skotels.hotelapp.model.Hotels;
-import skotels.hotelapp.repository.HotelsRepository;
+import skotels.hotelapp.model.User;
+import skotels.hotelapp.service.CommentService;
 import skotels.hotelapp.service.HotelsService;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/hotels")
@@ -19,9 +21,11 @@ import java.util.Optional;
 public class HotelsController {
 
     private final HotelsService hotelsService;
+    private final CommentService commentService;
 
-    public HotelsController(HotelsService hotelsService) {
+    public HotelsController(HotelsService hotelsService, CommentService commentService) {
         this.hotelsService = hotelsService;
+        this.commentService = commentService;
     }
 
     // Return the hotels
@@ -41,6 +45,22 @@ public class HotelsController {
     @PostMapping("/searchHotels")
     public List<Hotels> findAllByName(@RequestParam String search){
         return this.hotelsService.findHotelsByName(search);
+    }
+
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @PostMapping("/saveComment")
+    public List<Hotels> addNewComment(@RequestBody HotelsCommentDTO comment, Authentication authentication){
+        User user = (User) authentication.getPrincipal();
+        return this.commentService.addNewComment(comment.getComment(), user,
+                this.hotelsService.findHotelByName(comment.getHotelName()).get());
+    }
+
+    @GetMapping("/getComments")
+    public List<HotelsCommentDTO> getComments(@RequestBody Hotels hotel){
+
+        List<HotelsCommentDTO> comments = this.commentService.findCommentsByHotel(hotel)
+                .stream().map(Comment::convertToDTO).collect(Collectors.toList());
+        return comments;
     }
 
     // Save hotel in the db

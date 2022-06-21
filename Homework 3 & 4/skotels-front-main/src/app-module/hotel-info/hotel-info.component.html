@@ -26,4 +26,63 @@
             </div>
         </div>
     </div>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <div class="container">
+
+        <div  class="row">
+<!--            sec:authorize="hasRole('ROLE_USER')"-->
+            <div style="width: 600px; align-content: center" id="comments">
+                <form [formGroup]="commentGroup">
+                    <h3>New Comment</h3>
+                    <fieldset>
+                        <div class="row">
+                            <div>
+                                <textarea type="text" placeholder="comment" formControlName="comment" style="width: 570px;"  name="comment" class="form-control" id="message" required=""></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <button (click)="addComment(hotel)" style="width: 100px;" type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+
+
+            <div *ngFor="let c of hotel.comments;">
+                <div class="col-md-8">
+                    <div class="media g-mb-30 media-comment">
+                        <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                            <div class="g-mb-15">
+                                <h5 class="h5 g-color-gray-dark-v1 mb-0">{{c.username}}</h5>
+                                <span class="g-color-gray-dark-v4 g-font-size-12">{{c.time}}</span>
+                            </div>
+
+                            <p style="width: 600px;">{{c.comment}}</p>
+
+<!--                            <ul style="display: inline-block;" class="list-inline d-sm-flex my-0">-->
+<!--                                <li style="display: inline-block;" class="list-inline-item g-mr-20">-->
+<!--                                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary&#45;&#45;hover">-->
+<!--                                        <form th:method="POST" th:action="@{'/products/{id}/commentLike' (id=${comment.getId()})}">-->
+<!--                                            <i th:text="${comment.getTotalLikes()}"></i>-->
+<!--                                            <button style="font-size:24px; border: none"> <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i></button>-->
+<!--                                        </form>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+
+<!--                                <li style="display: inline-block; padding-left: 20px;" class="list-inline-item g-mr-20">-->
+<!--                                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary&#45;&#45;hover">-->
+<!--                                        <form th:method="POST" th:action="@{'/products/{id}/commentDislike' (id=${comment.getId()})}">-->
+<!--                                            <i th:text="${comment.getTotalDislikes()}"></i>-->
+<!--                                            <button  style="font-size:24px; border: none"> <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i></button>-->
+<!--                                        </form>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+
+<!--                            </ul>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
