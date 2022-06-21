@@ -10,9 +10,9 @@
       <div><button class="dropdown-content-btn" (click)="sortAlphabetic()">Sort by name</button></div>
     </div>
   </div>
-  <div class="add-btn" *ngIf="user!=null"><button *ngIf="user!=null" (click)="addHotel()">Add hotel</button></div>
+  <div *ngIf="user!=null"><button class="add-btn" *ngIf="user!=null" (click)="addHotel()">Add hotel</button></div>
   <div class="hotel-list">
-    <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index">
+    <div class="hotel-card" *ngFor="let h of hotels | filter:searchText; let i = index" (click)="showInfo(i)">
       <div class="hotel-name">{{h.name}}
         <span *ngIf="user!=null"><span *ngIf="user.role==='ROLE_ADMIN'" class="material-icons delete" (click)="deleteHotel(hotelIndex=i);confirmationModal.show()">delete</span></span>
       </div>
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="buttons">
-        <button class="hotelbtn" ><a href="https://www.booking.com/">Book now</a></button>
+        <button class="hotelbtn" ><a href="https://www.booking.com/" style="color: white">Book now</a></button>
           <button class="hotelbtn" (click)="showInfo(i)">Show more info</button>
       </div>
     </div>

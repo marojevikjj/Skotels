@@ -23,10 +23,12 @@
 .hotel-card {
   height: 400px;
   width: 300px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: #28bdd6;
   border-radius: 20px;
   margin: 40px;
+  border: 2px solid lightgray;
+  box-shadow: 3px 3px #28bdd6;
 }
 button {
   padding: 10px;
@@ -42,10 +44,11 @@ button:hover {
 .hotel-name {
   padding: 20px;
   font-size: 24px;
-  border-bottom: 1px solid white;
+  border-bottom: 3px solid lightgray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-weight: bold;
 }
 .delete:hover {
   cursor:pointer;
@@ -63,12 +66,13 @@ a {
 .map-image {
   height: 170px;
   width: 170px;
-  background-image: url("../../assets/map-small.jpg");
+  background-image: url("https://media.cntraveler.com/photos/53da5aa96dec627b149e509d/master/w_1024,h_768,c_limit/royal-ethiad-suite-jumeirah-abu-dhabi-2.jpg");
   opacity: 0.8;
   background-size: cover;
   display: flex;
   justify-content: center;
   vertical-align: center;
+  border-radius: 8px;
 }
 .darken-image{
   position: absolute;
@@ -77,12 +81,14 @@ a {
   height: 170px;
   width: 170px;
   background-color: black;
+  border-radius: 8px;
 }
 .map-image-text {
   z-index: 3;
   font-weight: 800;
   font-size: 23px;
   padding-top: 70px;
+  color: white;
 
 }
 .map {
@@ -190,32 +196,32 @@ input {
   background-color: #28bdd6;
 }
 .hotelbtn{
-  color: black;
-  background-color: lightgray;
+  color: white;
+  background-color: #28bdd6;
   border-radius: 15px;
   border: none;
   width: 130px;
   height: 50px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .hotelbtn:hover {
-  background-color: #28bdd6;
+  background-color: black;
+  color: white;
 }
 .add-btn{
-  /*color: white;*/
-  /*background-color: #28bdd6;*/
-  /*border-radius: 15px;*/
-  /*border: none;*/
-  /*width: 150px;*/
-  /*height: 50px;*/
-  /*font-size: 15px;*/
-  margin-left:180px;
+  margin-left:213px;
+  color: white;
+  background-color: black;
   border-radius: 15px;
+  border: none;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
 }
-.add-btn:hover{
-  color: #fff;
-  transform: translateY(5px);
-}
+/*.add-btn:hover{*/
+/*  color: #fff;*/
+/*  transform: translateY(5px);*/
+/*}*/
 .dropdown-content-btn{
   color: white;
   border: none;
