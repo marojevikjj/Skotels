@@ -1,22 +1,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="container">
-  <div class="hotel-name"><div class="text">{{hotel?.name}}</div></div>
-  <div class="hotel-image"><div class="img"></div></div>
-  <div class="other-info">
-    <div class="info-left">
-        <div class="info-item">Email: {{hotel?.email}}</div>
-        <div class="info-item">Phone: {{hotel?.phone}}</div>
-        <div class="info-item">Website: {{hotel?.website}}</div>
-        <div class="info-item">City: Skopje</div>
+<div class="flex-row">
+    <div class="gallery flex-col">
+        <img src="../../assets/hotel-description.jpeg">
     </div>
-    <div class="info-right">
-        <div class="info-item">Street: {{hotel?.address}}</div>
-        <div class="info-item">Stars: {{hotel?.stars}}</div>
-        <div class="info-item">Internet access: {{hotel?.internetAccess}}</div>
-        <div class="info-item">Rooms: {{hotel?.rooms}}</div>
-    </div>
-  </div>
-    <div class="starPosition">
+    <div class="flex-col">
+        <div class="hotel-name"><h1>{{hotel?.name}}</h1></div>
         <div *ngFor="let star of starList;">
             <div style="float:left;" *ngIf="star<=hotel.stars">
                 <span class="fa-2x fa fa-star checked starSize"></span>
@@ -25,28 +13,47 @@
                 <span class="fa-2x fa fa-star starSize"></span>
             </div>
         </div>
+        <br/>
+        <div class="space"></div>
+        <div>Internet access: {{hotel?.internetAccess}}</div>
+        <div>Rooms: {{hotel?.rooms}}</div>
+        <div class="space"></div>
+        <div><h3>Contact information:</h3></div>
+        <div>Address: Скопје, {{hotel?.address}}</div>
+        <div>Email: {{hotel?.email}}</div>
+        <div>Phone: {{hotel?.phone}}</div>
+        <div>Website: {{hotel?.website}}</div>
+
+
+
     </div>
+</div>
+
+
+
+
 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <div class="container">
+    <div >
 
-        <div  class="row">
+        <div  class="flex-row-review">
 <!--            sec:authorize="hasRole('ROLE_USER')"-->
-            <div style="width: 600px; align-content: center" id="comments">
+            <div class="flex-col" id="comments">
                 <form [formGroup]="commentGroup">
-                    <h3>New Comment</h3>
+                    <h3>Leave a review</h3>
                     <fieldset>
-                        <div class="row">
+                        <div class="space"></div>
                             <div>
-                                <textarea type="text" placeholder="comment" formControlName="comment" style="width: 570px;"  name="comment" class="form-control" id="message" required=""></textarea>
+                                <textarea type="text" placeholder="comment" formControlName="comment" style="width: 600px;"  name="comment" class="form-control" id="message" required=""></textarea>
                             </div>
-                        </div>
-                    </fieldset>
-                    <button (click)="addComment(hotel)" style="width: 100px;" type="submit" class="btn">Submit</button>
-                </form>
-            </div>
 
+                    </fieldset>
+                    <div class="space"></div>
+                    <button (click)="addComment(hotel)" style="width: 100px;" type="submit" class="dropdown-content-btn">Submit</button>
+                </form>
+
+            </div>
 
             <div *ngFor="let c of hotel.comments;">
                 <div class="col-md-8">
@@ -85,4 +92,4 @@
             </div>
         </div>
     </div>
-</div>
+

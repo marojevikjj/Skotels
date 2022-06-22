@@ -1,68 +1,67 @@
-.container {
-  padding:20px;
-  height: 907px;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(90deg, #000, #28bdd6, #000);
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50%;
 }
-.hotel-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
+.gallery > div {
+    flex-grow: 2;
+    width: 50%;
+    max-width: 50%;
 }
-.hotel-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.gallery img {
+    width: 100%;
+    height: auto;
 }
-.img {
-  margin-top: 40px;
-  background-image: url("../../assets/hotel-description.jpeg");
-  background-size: cover;
-  height: 300px;
-  width: 600px;
-  border-radius: 10px;
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
 }
-.other-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.flex-row-review{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+}
+.flex-col{
+    padding: 15px;
+    margin: 0 15px;
+}
+.flex-row-multicolum{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+}
+.flex-row-multicolum .flex-col{ width: 40%; margin: 0 15px 15px}
 
-}
-.info-left {
-  margin: 40px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  text-align: left;
-  justify-content: space-between;
-  font-family: Hack, sans-serif;
-  color:white;
-
-}
-.info-right {
-  margin: 40px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  text-align: left;
-  justify-content: space-between;
-  font-family: Hack, sans-serif;
-  color: white;
-}
 .checked {
-  color: orange;
+    color: orange;
 }
 .starSize {
-  margin-left: 10px;
-  margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
 }
 .starPosition {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hotel-name {
+    margin-bottom: 20px;
+    font-family: Tahoma ;
+    color: #28bdd6;
+}
+.space{
+    margin-bottom: 50px;
+}
+.dropdown-content-btn{
+    color: white;
+    border: none;
+    background-color: #28bdd6 ;
+    border-radius: 15px;
+    width: 140px;
+    height: 35px;
+    font-size: 13px;
 }
