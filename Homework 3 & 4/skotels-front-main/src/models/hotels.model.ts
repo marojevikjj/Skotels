@@ -1,3 +1,5 @@
+import {HotelsComment} from "./comment.model";
+
 export class HotelsModel {
   public location: string;
   public _id: string;
@@ -12,4 +14,5 @@ export class HotelsModel {
   public latitude: string;
   public longitude: string;
   public address: string;
+  public comments: HotelsComment [];
 }

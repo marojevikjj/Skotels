@@ -1,29 +1,95 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="container">
-  <div class="hotel-name"><div class="text">{{hotel?.name}}</div></div>
-  <div class="hotel-image"><div class="img"></div></div>
-  <div class="other-info">
-    <div class="info-left">
-        <div class="info-item">Email: {{hotel?.email}}</div>
-        <div class="info-item">Phone: {{hotel?.phone}}</div>
-        <div class="info-item">Website: {{hotel?.website}}</div>
-        <div class="info-item">City: Skopje</div>
+<div class="flex-row">
+    <div class="gallery flex-col">
+        <img src="../../assets/hotel-description.jpeg">
     </div>
-    <div class="info-right">
-        <div class="info-item">Street: {{hotel?.address}}</div>
-        <div class="info-item">Stars: {{hotel?.stars}}</div>
-        <div class="info-item">Internet access: {{hotel?.internetAccess}}</div>
-        <div class="info-item">Rooms: {{hotel?.rooms}}</div>
-    </div>
-  </div>
-    <div class="starPosition">
-<!--        <div *ngFor="let star of starList;">-->
-<!--            <div style="float:left;" *ngIf="star<=hotel.stars">-->
-<!--                <span class="fa-2x fa fa-star checked starSize"></span>-->
-<!--            </div>-->
-<!--            <div style="float:left;" *ngIf="star>hotel.stars">-->
-<!--                <span class="fa-2x fa fa-star starSize"></span>-->
-<!--            </div>-->
-<!--        </div>-->
+    <div class="flex-col">
+        <div class="hotel-name"><h1>{{hotel?.name}}</h1></div>
+        <div *ngFor="let star of starList;">
+            <div style="float:left;" *ngIf="star<=hotel.stars">
+                <span class="fa-2x fa fa-star checked starSize"></span>
+            </div>
+            <div style="float:left;" *ngIf="star>hotel.stars">
+                <span class="fa-2x fa fa-star starSize"></span>
+            </div>
+        </div>
+        <br/>
+        <div class="space"></div>
+        <div>Internet access: {{hotel?.internetAccess}}</div>
+        <div>Rooms: {{hotel?.rooms}}</div>
+        <div class="space"></div>
+        <div><h3>Contact information:</h3></div>
+        <div>Address: Скопје, {{hotel?.address}}</div>
+        <div>Email: {{hotel?.email}}</div>
+        <div>Phone: {{hotel?.phone}}</div>
+        <div>Website: {{hotel?.website}}</div>
+
+
+
     </div>
 </div>
+
+
+
+
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <div >
+
+        <div  class="flex-row-review">
+<!--            sec:authorize="hasRole('ROLE_USER')"-->
+            <div class="flex-col" id="comments">
+                <form [formGroup]="commentGroup">
+                    <h3>Leave a review</h3>
+                    <fieldset>
+                        <div class="space"></div>
+                            <div>
+                                <textarea type="text" placeholder="comment" formControlName="comment" style="width: 600px;"  name="comment" class="form-control" id="message" required=""></textarea>
+                            </div>
+
+                    </fieldset>
+                    <div class="space"></div>
+                    <button (click)="addComment(hotel)" style="width: 100px;" type="submit" class="dropdown-content-btn">Submit</button>
+                </form>
+
+            </div>
+
+            <div *ngFor="let c of hotel.comments;">
+                <div class="col-md-8">
+                    <div class="media g-mb-30 media-comment">
+                        <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                            <div class="g-mb-15">
+                                <h5 class="h5 g-color-gray-dark-v1 mb-0">{{c.username}}</h5>
+                                <span class="g-color-gray-dark-v4 g-font-size-12">{{c.time}}</span>
+                            </div>
+
+                            <p style="width: 600px;">{{c.comment}}</p>
+
+<!--                            <ul style="display: inline-block;" class="list-inline d-sm-flex my-0">-->
+<!--                                <li style="display: inline-block;" class="list-inline-item g-mr-20">-->
+<!--                                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary&#45;&#45;hover">-->
+<!--                                        <form th:method="POST" th:action="@{'/products/{id}/commentLike' (id=${comment.getId()})}">-->
+<!--                                            <i th:text="${comment.getTotalLikes()}"></i>-->
+<!--                                            <button style="font-size:24px; border: none"> <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i></button>-->
+<!--                                        </form>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+
+<!--                                <li style="display: inline-block; padding-left: 20px;" class="list-inline-item g-mr-20">-->
+<!--                                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary&#45;&#45;hover">-->
+<!--                                        <form th:method="POST" th:action="@{'/products/{id}/commentDislike' (id=${comment.getId()})}">-->
+<!--                                            <i th:text="${comment.getTotalDislikes()}"></i>-->
+<!--                                            <button  style="font-size:24px; border: none"> <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i></button>-->
+<!--                                        </form>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+
+<!--                            </ul>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
